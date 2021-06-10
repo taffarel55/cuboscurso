@@ -1,3 +1,4 @@
-const n;
+const n=5;
 let s = (n-2)*180;
-console.log(s)
+let a = s/n;
+console.log(`s=${s} | a=${a}`);
