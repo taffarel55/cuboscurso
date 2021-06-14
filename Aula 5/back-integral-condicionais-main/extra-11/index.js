@@ -11,4 +11,6 @@ if (mesesDecorridos>=60 || totalJaPagoPeloAluno>=18_000_00) {
     console.log("Não deve nada");
 } else if (rendaMensalEmCentavos>=2_000_00) {
     console.log(`O valor da parcela desse mês é R$ ${(0.0018*rendaMensalEmCentavos).toFixed(2)} reais`)
+} else {
+    console.log(`O valor da parcela desse mês é R$ 0 reais. Nenhum valor é devido pois a renda do estudante está abaixo do valor mínimo de R$ 2000 reais.`);
 }
