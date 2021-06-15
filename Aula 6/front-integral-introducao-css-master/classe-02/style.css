@@ -1,0 +1,22 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+html {
+    background: gray;
+}
+
+header {
+    background: lightgray;
+    padding: 15px;
+}
+
+section {
+    color: white;
+    padding: 30px;
+}
+
+p {
+    margin-bottom: 150px;
+}
