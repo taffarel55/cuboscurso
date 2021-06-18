@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #FF7982;
+}
+
+.container {
+    margin: 72px 80px;
+}
+
+header {
+    background: brown url('assets/background.png')  center bottom;
+    background-size: cover;
+    padding: 0.05px;
+}
+
+div.card-blue {
+    background: rgba(9, 24, 63, 0.5);
+    border-radius: 10px;
+    width: 50%;
+    margin: 58px auto 53px auto;
+    filter:drop-shadow(0px, 14px, 25, rgba(9, 24, 63,0.17));
+    padding: 0.05px;
+    color: white;
+}
+
+div.card-blue h2 {
+    font-family: Merriweather;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 46px;
+    letter-spacing: 0em;
+    text-align: center;
+    margin: 57px auto 10px auto;
+}
+
+div.card-blue p {
+    font-family: Mulish;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin: 0 57px 25px 57px;
+    font-family: 'Mulish', sans-serif;
+}
+
+div.card-blue a {
+    opacity: 100%;
+    font-family: Mulish;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: center;
+    display: block;
+    margin: 0 auto 55px auto;
+    padding: 9px 30px;
+    border-radius: 50px;
+    background: #FF8E4F;
+    color: white;
+    text-decoration: none;
+    max-width: 120px;
+}
+
+section {
+    background: #F4F8FD;
+    padding: 73px;
+}
+
+.card-white {
+    background: white;
+    padding: 51px;
+    border-radius: 5px 5px 0 0;
+    width: 501px;
+    margin: 0 auto;
+}
+
+article img {
+    display: block;
+    width: 501px;
+    margin: 0 auto;
+    border-radius: 0 0 5px 5px;
+}
+
+.card-white h3 {
+    font-family: Merriweather;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 46px;
+    letter-spacing: 0em;
+    text-align: center;
+    margin-bottom: 26px;
+}
+
+.card-white p {
+    font-family: Mulish;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px;
+    letter-spacing: 0em;
+    text-align: center;
+    margin-bottom: 38px;
+}
+
+.card-white a {
+    padding: 9px 30px;
+    border: 1px solid #09183F;
+    border-radius: 50px;
+    font-family: Mulish;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: center;
+    text-transform: uppercase;
+    color: #09183F;
+    text-decoration: none;
+    display: block;
+    margin: 0 auto;
+    width: 132px;
+}
+
+article {
+    margin-bottom: 60px;
+}
