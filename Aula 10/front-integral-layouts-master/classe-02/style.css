@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background: #19a1ae url('assets/background.jpg') no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    margin: 120px auto;
+    width: 350px;
+    height: 374px;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+}
+
+.bg-pattern-card {
+    background-image: url('assets/bg-pattern-card.svg');
+    height: 140px;
+    border-radius: 15px 15px 0 0;
+}
+
+.card .profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile img {  
+    width: 96px;
+    border: 5px solid white;
+    border-radius: 50%;
+    margin: -48px auto 24px auto;
+}
+
+.profile h2 {
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 18px;
+    text-align: center;
+    color: #2E3349;
+    margin-bottom: 8px;
+}
+
+.profile h2 span {
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0px;
+    text-align: center;
+    color: #6B7082;
+}
+
+.profile .city {
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 0px;
+    text-align: center;
+    color: #6B7082;
+    margin-bottom: 28px;
+}
+
+.card hr {
+    border: none;
+    height: 1px;
+    color: #E8E9EC; /* old IE */
+    background-color: #E8E9EC; /* Modern Browsers */
+}
+
+.card .stats {
+    display: flex;
+    padding: 24px;
+    justify-content: space-around;
+    text-align: center;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+.card .stats .number {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 18px;
+    letter-spacing: 0px;
+    text-align: center;
+    color: #2E3349;
+    margin-bottom: 9px;
+}
+
+.card .stats .description {
+    font-family: Kumbh Sans;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 10px;
+    letter-spacing: 1.5px;
+    text-align: center;
+    color: #6B7082;
+}
