@@ -66,11 +66,11 @@ section {
     height: 66%;
 }
 
-section.first {
+section:nth-child(odd) {
     flex-direction: row;
 }
 
-section.second {
+section:nth-child(even) {
     flex-direction: row-reverse;
 }
 
