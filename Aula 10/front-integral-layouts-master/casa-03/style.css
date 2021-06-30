@@ -67,11 +67,11 @@ section {
 }
 
 section:nth-child(odd) {
-    flex-direction: row;
+    flex-direction: row-reverse;
 }
 
 section:nth-child(even) {
-    flex-direction: row-reverse;
+    flex-direction: row;
 }
 
 section .text {

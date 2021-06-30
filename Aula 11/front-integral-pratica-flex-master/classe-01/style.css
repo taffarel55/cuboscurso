@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Lexend+Deca&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #E5E5E5;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.cards {
+    display:flex;
+    justify-content: space-between;
+    margin: 10%;
+}
+
+.item-card {
+    padding: 48px;
+    color: white;
+}
+
+.item-card:first-child {
+    background: #E28625;
+    border-radius: 8px 0 0 8px;
+}
+
+.sand {
+    color: #E28625 !important;
+}
+
+.item-card:nth-child(2n) {
+    background: #006971;
+}
+
+.sea {
+    color: #006971 !important;
+}
+
+.item-card:nth-child(3n) {
+    background: #004140;
+    border-radius: 0 8px 8px 0;
+}
+
+.ocean {
+    color: #004140 !important;
+}
+
+.item-card img {
+    height: 40px;
+    margin-bottom: 35px;
+}
+
+.item-card h3 {
+    font-family: 'Big Shoulders Display', cursive;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 48px;
+    letter-spacing: 0px;
+    text-align: left;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.item-card p {
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25px;
+    letter-spacing: 0px;
+    text-align: left;
+    margin-bottom: 83px;
+    opacity: 75%;
+}
+
+.item-card a {
+    font-family: Lexend Deca;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25px;
+    letter-spacing: 0px;
+    text-align: left;
+    padding: 11px 32px;
+    border-radius: 25px;
+    background: #F2F2F2;
+    text-decoration: none;
+}

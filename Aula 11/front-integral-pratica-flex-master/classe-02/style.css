@@ -1,0 +1,134 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #fffaf2;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    gap: 58px;
+    margin: 5%;
+}
+
+.card {
+    background: #FFFFFF;
+    box-shadow: 0px 10px 25px 0px #DCCDB56B;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.card:first-child {
+    padding: 55px;
+}
+
+.card:nth-child(2n) {
+    padding: 35px;
+}
+
+.card h4, .card p {
+    margin-bottom: 40px;
+}
+
+.card h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 27px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #212D59;
+}
+
+.card:first-child h4 {
+    margin-bottom: 72px;
+}
+
+.emoji-group {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    margin-bottom: 85px;
+}
+
+.emoji-group a, .comment-area p {
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: rgb(33, 45, 89,0.5);
+}
+
+.card a.button {
+    padding-top: 18px;
+    padding-bottom: 18px;
+    background: #2F2D2C;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 5px;
+    width: 50%;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0em;
+}
+
+.center {
+    display: block;
+    margin: 0 auto;
+}
+
+.card img {
+    margin-bottom: 15px;
+}
+
+.card p.text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: center;
+    color:#212D59;
+}
+
+.comment-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 34px;
+}
+
+.comment-area p {
+    margin-bottom: 0;
+}
+
+
+.card .btn-close{
+    content: url("assets/botao-fechar.svg");
+    float: right;
+    position: relative;
+    top: -35px;
+    right: -35px;
+}
+
+.card .btn-close2{
+    content: url("assets/botao-fechar.svg");
+    float: right;
+    position: relative;
+    top: -20px;
+    right: -20px;
+}

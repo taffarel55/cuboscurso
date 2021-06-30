@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #FF6A951A;
+}
+
+div[class^="card"] {
+    background: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0px 16px 45px -15px #02058440;
+    padding: 30px;
+}
+
+.card-first {
+    margin: 100px auto 50px auto;
+    width: max-content;
+    max-width: 90%;
+}
+
+.layer-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    gap: 29px;
+}
+
+.profile-info img {
+    border-radius: 50%;
+    width: 100px;
+}
+
+.bg-img {
+    padding: 8px;
+    background: #FFFFFF;
+    height: 116px;
+    border-radius: 50%;
+    border: 0.5px solid #EFEFFF;
+    box-shadow: 0px 8px 22.5px -8px #02058433;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.text .name {
+    font-family: Merriweather;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.text .role {
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;    
+}
+
+.layer-top a {
+    background: #202142;
+    border-radius: 10px;
+    padding: 15px 30px;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.layer-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.layer-bottom img {
+    width: 33%;
+    border-radius: 10px;
+}
