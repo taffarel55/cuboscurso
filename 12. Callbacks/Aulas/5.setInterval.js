@@ -1,0 +1,1 @@
+setInterval(()=>{console.log('Passou 1s')},1000);
