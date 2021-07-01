@@ -4,3 +4,7 @@ const endereços = [
     { cep: 00222444, rua: "Avenida Paralela" },
     { cep: 11222333, rua: "Rua Carlos Gomes" },
 ];
+
+const cep = 00222444;
+const achado = endereços.find(end=>end.cep==cep);
+console.log(achado.rua);
