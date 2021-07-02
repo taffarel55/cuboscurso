@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+    background: #eff2f8 url('assets/background.png') center center / cover no-repeat;
+}
+
+.card {
+    padding: 50px;
+    padding-bottom: 30px;
+    background: white;
+    border-radius: 10px;
+    width: 60%;
+}
+
+a.btn-close {
+    position: relative;
+    float: right;
+    top: -30px;
+    right: -30px;
+}
+
+h1 {
+    font-family: 'Mulish', sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-family: Mulish;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 50px;
+}
+
+input, button {
+    all: unset;
+    box-sizing: border-box;
+}
+
+input {
+    border: 1px solid #E5E5E5;
+    border-radius: 5px;
+    flex-grow: 1;
+    padding: 15px 20px;
+    font-family: 'Mulish', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+input:focus {
+    border: 1px solid #272727;
+}
+
+button {
+    background: #9677EF;
+    padding: 12px 35px;
+    color: white;
+    font-family: 'Mulish', sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25px;
+    letter-spacing: 0em;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: rgb(150, 119, 239, 0.8);
+    filter: drop-shadow(0px 11px 20px rgb(150, 119, 239, 0.3));
+}
+
+.guidelines {
+    padding: 30px 20px ;
+    color: #494949;
+}
+
+h3 {
+    font-family: 'Mulish', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 18px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+p {
+    font-family: 'Mulish', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: left;
+    width: 74%;
+}
+
+p a {
+    font-weight: 400;
+    color: #9677EF;
+}
