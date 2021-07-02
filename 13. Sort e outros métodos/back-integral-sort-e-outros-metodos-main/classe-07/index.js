@@ -30,3 +30,5 @@ const usuários = [
         habilitado: true,
     },
 ]
+
+console.log(usuários.filter(x=>x.idade>18 && x.idade<65).every(x=>x.habilitado)?'todos passaram no teste':'todos precisam estar habilitados');
