@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish&family=Rokkitt:wght@700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f8efef;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    padding: 64px 90px 56px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0px 10px 24px 0px #00000026;
+    width: 60%;
+}
+
+h1 {
+    font-family: 'Rokkitt', serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 41px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-bottom: 15px;
+    color: #161843;
+}
+
+p.log-in-text {
+    margin-bottom: 52px;
+    font-family: 'Mulish', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+input, button {
+    all: unset;
+    box-sizing: border-box;
+}
+
+input {
+    border: 1px solid #CAD6E4;
+    border-radius: 5px;
+    padding: 25px;
+    font-family: 'Mulish', sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 23px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #717A90;
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+input:focus {
+    border: 1px solid #26394F;
+}
+
+.links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 55px;
+}
+
+.links a {
+    font-family: 'Mulish', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+    text-decoration: none;
+    color: #0C6787;
+}
+
+.links button {
+    display: flex;
+    background: #046586;
+    padding: 25px 35px;
+    gap: 14px;
+    border-radius: 5px;
+    color: white;
+    font-family: 'Mulish', sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 23px;
+    letter-spacing: 0em;
+    text-align: left;
+    align-items: center;
+    cursor: pointer;
+}
+
+.links button:hover {
+
+}
+
+hr {
+    border: 1px solid #CAD6E4;
+    border-bottom: 0px;
+    margin-bottom: 35px;
+}
+
+.t2 {
+    font-family: 'Mulish', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0em;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #838A9E;
+}
+
+.group-social {
+    display: flex;
+    gap: 16px;
+}
+
+.social-item {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+    border: 1px solid #CAD6E4;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 60px;
+}
+
+.social-item:hover {
+    border: 1px solid #26394F;
+}
+
+a.social-item {
+    font-family: 'Mulish', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+    text-decoration: none;
+    color: #000000;
+}
+
+.sign-text {
+    font-family: 'Mulish', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+
+.sign-text a {
+    color: #046586;
+}
