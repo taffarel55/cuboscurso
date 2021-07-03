@@ -107,10 +107,6 @@ input:focus {
     cursor: pointer;
 }
 
-.links button:hover {
-
-}
-
 hr {
     border: 1px solid #CAD6E4;
     border-bottom: 0px;
