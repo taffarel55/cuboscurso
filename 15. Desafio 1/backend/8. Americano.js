@@ -1,5 +1,4 @@
-const numeros = [1, 3, 2, 1, 5];
+const numeros = [0,0,0];
 
 const soma = numeros.reduce((a, b) => a + b);
-
-console.log(soma > numeros.length ? soma % numeros.length : soma);
+console.log(soma % numeros.length === 0 ? numeros.length : soma % numeros.length);
