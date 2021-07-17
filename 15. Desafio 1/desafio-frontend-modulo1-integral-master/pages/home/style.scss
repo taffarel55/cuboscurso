@@ -1,0 +1,18 @@
+@import '../../css/global';
+
+.img-bg {
+    height: 600px;
+    background: $grey url('../../assets/home/image-homepage-hero.jpg') center center / cover no-repeat;
+    display: flex;
+    align-items: flex-end;
+    .card-title {
+        width: 40%;
+        padding: 56px 28px 0px 27px;
+        background: $light;
+        a {
+            margin: 53px auto 0 -27px;
+        }
+    }                     
+}
+
+.btn-contact {width: 204px}

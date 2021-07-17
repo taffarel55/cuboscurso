@@ -1,0 +1,11 @@
+$cyan: #5FB4A2;
+$blue: #203A4C;
+$dark: #33323D;
+$light: #FAFAFA;
+$grey: #EAEAEB;
+
+@mixin colors($c, $bg) {
+    background-color: $bg;
+    color: $c;
+    -webkit-text-fill-color: $c;
+}

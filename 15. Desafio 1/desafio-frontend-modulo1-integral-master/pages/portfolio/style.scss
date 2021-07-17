@@ -1,0 +1,16 @@
+@import '../../css/global';
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    margin: 94px auto 150px;
+}
+
+section.card {
+    margin: 0;
+    &:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+    .card-img { img { width: 40vw;} } 
+}

@@ -1,0 +1,264 @@
+@import 'imports/colors';
+@import 'imports/fonts';
+@import 'imports/reset';
+
+h1,h2,h3,.body1,.body2 {
+  font-style: normal;
+  color: $dark;
+  text-align: left;
+}
+
+h1,h2,h3 {
+  font-family: 'Ibarra Real Nova', serif;
+}
+
+.body1, .body2 {
+  font-family: 'Public Sans', sans-serif;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0px;
+}
+
+h1 {
+  font: {
+    size: 50px;
+    weight: 700;
+  }
+  line-height: 50px;
+  letter-spacing: -0.4464285671710968px;
+}
+
+h2 {
+  font: {
+    size: 40px;
+    weight: 700;
+  }
+  line-height: 42px;
+  letter-spacing: -0.3571428656578064px;
+}
+
+h3 {
+  font: {
+    size: 32px;
+    weight: 400;
+  }
+  line-height: 36px;
+  letter-spacing: -0.2857142984867096px;
+}
+
+.body1 {
+  font-size: 16px;
+}
+
+.body2 {
+  font-size: 15px;
+}
+
+.btn-primary {
+  @include colors(white, $blue);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  width: 200px;
+  .bg-img {
+    padding: 18px 16px;
+    background: rgba(0,0,0,0.1);
+    mix-blend-mode: normal;
+    stroke: $cyan;
+  }
+  .btn-txt {
+    text-transform: uppercase;
+    font-family: 'Public Sans', sans-serif;
+    margin: 0 auto;
+  }
+  &:hover {
+    background-color: $cyan;
+    svg {stroke:white;}
+  }
+  &:active {
+    position: relative;
+    top: 1px;
+  }
+  transition: 0.3s;
+}
+
+.btn-contact {
+  @extend .btn-secondary;
+  @include colors($dark, $light);
+  &:hover {@include colors($light, $dark)}
+  box-shadow: inset 0px 0px 0px 1px $dark;
+  font-weight: 100;
+}
+
+.btn-submit {
+  all: unset;
+  box-sizing: border-box;
+  @extend .btn-secondary;
+  @include colors($light, $blue);
+  &:hover {@include colors($light, $cyan)}
+  font-weight: 400;
+}
+
+.btn-secondary {
+  display:block;
+  padding: 17px;
+  width: 162px;
+  font: {
+    family: 'Public Sans', sans-serif;
+    size: 12px;
+    style: normal;
+  } 
+  text: {
+    transform: uppercase;
+    align: center;
+    decoration: none;
+  }
+  line-height: 14px;
+  letter-spacing: 2px;
+  transition: 0.5s;
+  cursor:pointer;
+}
+
+.input-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+input,textarea {
+  all: unset;
+  box-sizing: border-box;
+  @include colors($dark,#ebebec);
+  width: 100%;
+  font-size: 15px;
+  padding:10px;
+  &:focus {box-shadow: inset 0px 0px 0px 2px $dark;}
+}
+
+input {height:48px;}
+
+textarea {height:72px;}
+
+label {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 30px;
+  letter-spacing: 0px;
+}
+
+html {
+  background: #fafafa;
+}
+
+.container {
+  width: 75%;
+  margin: 0 auto;
+}
+
+header {
+  margin-top: 64px;
+  margin-bottom: 54px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  nav {
+      display: flex;
+      gap: 42px;
+      a {
+          line-height: 14px;
+          letter-spacing: 2px;
+          color: $dark;
+          font: {
+              family: 'Public Sans', sans-serif;
+              size: 12px;
+              style: normal;
+              weight: 400;
+          }
+          text: {
+              transform: uppercase;
+              decoration: none;
+          }
+          &.active {
+              color: $cyan;
+          }
+      }
+  }
+}
+
+.pre-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 150px;
+  h3 {width: 33%}
+}
+
+footer {
+  background: $dark;
+  .container {
+      padding: 24px 0px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .group-pages {
+          display: flex;
+          align-items: center;
+          gap:48px;
+          .group-links {
+              display:flex;
+              gap: 42px;
+              a {
+                  color: white;
+                  font: {
+                      family: 'Public Sans', sans-serif;
+                      size: 12px;
+                      style: normal;
+                      weight: 400;
+                  }
+                  text-decoration: none;
+                  line-height: 14px;
+                  letter-spacing: 2px;
+              }
+          }
+      }
+      .group-social {
+          display: flex;
+          gap: 15px;
+          align-items: center;
+      }
+  }
+}
+
+section.card {
+  margin: 150px auto;
+  display: flex;
+  gap: 5vw;
+  .card-img {
+      img {
+          width: 35vw;
+      }
+  }
+  .card-txt {
+      h2 {
+          margin-bottom: 28px;
+      }
+      .body1 {
+          opacity: 80%;
+          margin-bottom: 24px;
+      }
+      a {
+          display: block;
+          margin: 0 auto;
+      }
+  }
+}
+
+hr {
+  height: 1px;
+  border: none;
+  max-width: 100%;
+  @include colors($dark, $dark);
+  opacity: 0.15;
+}
