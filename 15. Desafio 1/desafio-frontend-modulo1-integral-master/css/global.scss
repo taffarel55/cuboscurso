@@ -131,13 +131,9 @@ input,textarea {
   @include colors($dark,#ebebec);
   width: 100%;
   font-size: 15px;
-  padding:10px;
+  padding:8px;
   &:focus {box-shadow: inset 0px 0px 0px 2px $dark;}
 }
-
-input {height:48px;}
-
-textarea {height:72px;}
 
 label {
   font-family: 'Public Sans', sans-serif;

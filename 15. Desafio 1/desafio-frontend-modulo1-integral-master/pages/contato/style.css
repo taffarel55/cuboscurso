@@ -1,14 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Public+Sans:wght@100;400&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Public+Sans:wght@100;400&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -172,20 +163,12 @@ input, textarea {
   -webkit-text-fill-color: #33323D;
   width: 100%;
   font-size: 15px;
-  padding: 10px;
+  padding: 8px;
 }
 
 input:focus, textarea:focus {
   -webkit-box-shadow: inset 0px 0px 0px 2px #33323D;
           box-shadow: inset 0px 0px 0px 2px #33323D;
-}
-
-input {
-  height: 48px;
-}
-
-textarea {
-  height: 72px;
 }
 
 label {
@@ -313,5 +296,80 @@ footer .container .group-social {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+section.card {
+  margin: 150px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 5vw;
+}
+
+section.card .card-img img {
+  width: 35vw;
+}
+
+section.card .card-txt h2 {
+  margin-bottom: 28px;
+}
+
+section.card .card-txt .body1 {
+  opacity: 80%;
+  margin-bottom: 24px;
+}
+
+section.card .card-txt a {
+  display: block;
+  margin: 0 auto;
+}
+
+hr {
+  height: 1px;
+  border: none;
+  max-width: 100%;
+  background-color: #33323D;
+  color: #33323D;
+  -webkit-text-fill-color: #33323D;
+  opacity: 0.15;
+}
+
+header {
+  margin-bottom: 94px;
+}
+
+.contact-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 125px;
+}
+
+.contact-card h2 {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  width: 35%;
+}
+
+.contact-card .group-social {
+  margin-top: 54px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 16px;
+  justify-items: center;
+  margin-bottom: 48px;
+}
+
+.contact-card:last-of-type {
+  margin-bottom: 109px;
+}
+
+.contact-card .body1 {
+  width: 100%;
+}
+
+.contact-card .body1 .input-item {
+  margin-bottom: 24px;
 }
 /*# sourceMappingURL=style.css.map */

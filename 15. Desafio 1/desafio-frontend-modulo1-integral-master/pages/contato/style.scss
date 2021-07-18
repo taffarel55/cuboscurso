@@ -1,5 +1,30 @@
-@import '../../css/imports/reset';
-@import '../../css/imports/fonts';
-@import '../../css/imports/colors';
 @import '../../css/global';
 
+header {
+    margin-bottom: 94px;
+}
+
+.contact-card {
+    display: flex;
+    gap: 125px;
+    h2 {
+        flex-shrink: 0;
+        width: 35%;
+    }
+    .group-social {
+        margin-top: 54px;
+        display: flex;
+        gap: 16px;
+        justify-items: center;
+        margin-bottom: 48px;
+    }
+    &:last-of-type {
+        margin-bottom: 109px;
+    }
+    .body1 {
+        width: 100%;
+        .input-item {
+            margin-bottom: 24px;
+        }
+    }
+}
