@@ -333,4 +333,92 @@ hr {
   -webkit-text-fill-color: #33323D;
   opacity: 0.15;
 }
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 90% !important;
+  }
+  header {
+    margin: 5% !important;
+  }
+  header nav {
+    gap: 10px !important;
+  }
+  .img-bg {
+    -webkit-box-align: center !important;
+        -ms-flex-align: center !important;
+            align-items: center !important;
+  }
+  .img-bg .card-title {
+    border-radius: 10px;
+    -webkit-box-shadow: 10px 10px 20px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 10px 10px 20px 20px rgba(0, 0, 0, 0.2);
+    width: 90% !important;
+    margin: 0 auto !important;
+    background-color: 255, 255, 255, 0 !important;
+  }
+  .img-bg .card-title a {
+    margin: 30px auto !important;
+  }
+  section.card {
+    margin: 50px auto !important;
+    display: table !important;
+  }
+  section.card .card-img {
+    margin-bottom: 50px !important;
+  }
+  section.card .card-img img {
+    width: 100% !important;
+  }
+  section.card .card-txt {
+    width: 100% !important;
+  }
+  .pre-footer {
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
+    gap: 30px;
+    margin-bottom: 150px;
+    margin-bottom: 50px !important;
+  }
+  .pre-footer h3 {
+    width: 100% !important;
+    text-align: center;
+  }
+  footer .container {
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
+    gap: 30px;
+  }
+  footer .container .group-pages {
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
+    gap: 30px !important;
+  }
+  footer .container .group-pages .group-links {
+    gap: 15px !important;
+  }
+  footer .container .group-social {
+    gap: 25px !important;
+  }
+  .content {
+    gap: 0px !important;
+    margin: 0 auto !important;
+  }
+  .contact-card {
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
+    gap: 30px !important;
+  }
+  .contact-card h2 {
+    width: 100% !important;
+  }
+}
 /*# sourceMappingURL=global.css.map */

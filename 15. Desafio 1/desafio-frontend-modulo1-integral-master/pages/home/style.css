@@ -163,20 +163,12 @@ input, textarea {
   -webkit-text-fill-color: #33323D;
   width: 100%;
   font-size: 15px;
-  padding: 10px;
+  padding: 8px;
 }
 
 input:focus, textarea:focus {
   -webkit-box-shadow: inset 0px 0px 0px 2px #33323D;
           box-shadow: inset 0px 0px 0px 2px #33323D;
-}
-
-input {
-  height: 48px;
-}
-
-textarea {
-  height: 72px;
 }
 
 label {
