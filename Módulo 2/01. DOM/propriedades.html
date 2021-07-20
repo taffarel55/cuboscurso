@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #vermelho {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Olá, DOM! <spam style="display: none">Texto escondido</spam></h1>
+    <div id="vouMudar"></div>
+    <div id="vermelho">Era vermelho</div>
+    <div id="ficarEstiloso">Vou ficar estiloso</div>
+    <input>
+</body>
+<script>
+    const h1 = document.querySelector('h1');
+
+    console.log(`innerText = ${h1.innerText}`);
+    console.log(`textContent = ${h1.textContent}`);
+
+    const mudar = document.getElementById('vouMudar');
+    vouMudar.textContent = h1.textContent;
+
+    document.getElementById('vermelho').id='verde'
+
+    document.getElementById('ficarEstiloso').style.color = 'blue';
+
+    document.querySelector('input').value = 'Maurício';
+</script>
+</html>

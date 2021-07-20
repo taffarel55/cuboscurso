@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .escondido {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <button onclick="mostrarMensagem1()">Clique aqui 1</button>
+        <button onclick="mostrarMensagem2()">Clique aqui 2</button>
+        <h1>Mensagem muito legal 1</h1>
+        <h2>Mensagem muito legal 2</h2>
+    </div>
+</body>
+<script>
+    const h1 = document.querySelector('h1');
+    const h2 = document.querySelector('h2');
+    function mostrarMensagem1 () {
+        h1.style.display = h1.style.display === 'none' ? 'block' : 'none';
+    }
+    function mostrarMensagem2 () {
+        h2.classList.toggle('escondido');
+    }
+</script>
+</html>
