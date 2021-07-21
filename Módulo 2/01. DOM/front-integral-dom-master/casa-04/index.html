@@ -7,7 +7,9 @@
     <title>Contatos</title>
 
     <style>
-
+        img {
+            width: 80px;
+        }
     </style>
 </head>
 
@@ -91,6 +93,22 @@
         descricao: '🐱🐶',
         imagem: `${caminhoImagens}/lurdes.jpg`
     }];
+
+    // 1)
+    contatos.sort((a,b)=>b.mensagens-a.mensagens);
+
+    // 2)
+    const ctt = contatos.slice(0,5);
+
+    // 3)
+    const imgList  = document.querySelectorAll('.contatos li img');
+    const infoList  = document.querySelectorAll('.informacao-contato');
+
+    for (let i = 0; i < imgList.length; ++i) {
+        imgList[i].src=ctt[i].imagem;
+        infoList[i].children[0].textContent=ctt[i].nome;
+        infoList[i].children[1].textContent=ctt[i].descricao;
+    }
 </script>
 
 </html>
