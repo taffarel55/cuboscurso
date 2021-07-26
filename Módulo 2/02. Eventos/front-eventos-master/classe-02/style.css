@@ -15,5 +15,9 @@ input {
 }
 
 .acerto {
-  border: 3px solid green;
+  border: 2px inset green;
+}
+
+.erro {
+  border: 2px inset red;
 }
