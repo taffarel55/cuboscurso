@@ -21,6 +21,7 @@ body {
 
 .escondido {
   display: none;
+  transition: 0.2s ease-in-out;
 }
 
 .btn {
@@ -35,4 +36,5 @@ body {
 
 .inscrito {
   background-color: grey;
+  transition: 0.2s ease-in-out;
 }
