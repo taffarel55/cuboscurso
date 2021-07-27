@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            justify-content: center;
+        }
+        img {
+            height:200px;
+        }
+        .container {
+            display: flex;
+        }
+        .quadro {
+            border: 1px solid black;
+            padding: 12px;
+        }
+        .quadro-1 {
+            position: relative;
+            left: 50px;
+        }
+        .quadro-2 {
+            position: relative;
+            bottom: 50px;
+        }
+        .gato {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="quadro quadro-1">
+            <img class="gato" src="gato.jpg"/>
+        </div>
+        <div class="quadro quadro-2">
+            <img class="cachorro" src="cachorro.jpg"/>
+        </div>
+    </div>
+    <h1>Gato ou Cachorro?</h1>
+    <p>Qual seu pet favorito?</p>
+</body>
+</html>

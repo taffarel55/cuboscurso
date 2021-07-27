@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            align-items: center;
+        }
+        .container {
+            display: flex;
+            background-color: rgb(250, 173, 165);
+            gap:10px;
+            width: min-content;
+            padding: 10px;
+            border-radius: 10px;
+            position: relative;
+        }
+        .card {
+            padding: 50px;
+            background-color: rgb(78, 197, 78);
+            border-radius: 10px;
+            border: 1px solid gray;
+        }
+        .blue {
+            background-color: rgb(26, 99, 158);
+            position: absolute;
+            top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card"></div>
+        <div class="card blue"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+    </div>
+</body>
+</html>

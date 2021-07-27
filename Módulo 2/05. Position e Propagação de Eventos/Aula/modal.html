@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: start;
+        }
+        .modal {
+            background-color: rgba(0,0,0,0.5);
+            position: absolute;
+            top:0;
+            right:0;
+            bottom:0;
+            left:0;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+        img {
+            position: relative;
+        }
+        .button {
+            width:30px;
+            position:absolute;
+            margin: -200px -200px 0px 0px;
+        }
+        .button:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1 align="center">Galeria Maurício</h1>
+    <div class="container">
+        <img src="https://picsum.photos/id/100/200/200"/>
+        <img src="https://picsum.photos/id/101/200/200"/>
+        <img src="https://picsum.photos/id/102/200/200"/>
+        <img src="https://picsum.photos/id/103/200/200"/>
+        <img src="https://picsum.photos/id/104/200/200"/>
+        <img src="https://picsum.photos/id/106/200/200"/>
+        <img src="https://picsum.photos/id/107/200/200"/>
+    </div>
+    <div class="modal">
+        <a target="_blank">
+            <img />
+        </a>
+        <img class="button" src="button.png">
+    </div>
+</body>
+<script>
+    const imagensGaleria = document.querySelectorAll('.container img');
+    const imagemModal = document.querySelector('.modal img');
+    const button = document.querySelector('.button');
+    const modal = document.querySelector('.modal');
+    const link = document.querySelector('.modal a');
+
+    button.addEventListener('click',()=>{
+        modal.style.display='none';
+    });
+
+    modal.addEventListener('click',()=>{
+        modal.style.display='none';
+    });
+
+    link.addEventListener('click',(event)=>{
+        event.stopPropagation();
+    });
+
+    function abrirModal(src) {
+        imagemModal.src=src;
+        modal.style.display='flex';
+        link.href=src;
+    }
+
+    imagensGaleria.forEach((img=>{
+        img.addEventListener('click',() => {
+            abrirModal(event.target.src);
+        });
+    }));
+</script>
+</html>
