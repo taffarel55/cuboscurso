@@ -1,5 +1,5 @@
 const modal = document.querySelector('.modal');
-const info  = document.querySelector('.info');
+const info  = document.querySelector('.img');
 
 info.addEventListener('click',()=>{
     if(modal.style.visibility==='hidden') {
