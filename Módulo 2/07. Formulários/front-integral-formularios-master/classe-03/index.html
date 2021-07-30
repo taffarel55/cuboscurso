@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .musica {
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cadastro musicas</h1>
+    <form action="https://www.google.com/search" target="_blank" method="GET">
+        <select required> 
+            <option value="none" select>Selecionar</option>
+            <option value="gospel">Gospel</option>
+            <option value="rock">Rock</option>
+            <option value="sertanejo">Sertanejo</option>
+        </select>
+        <div class="musica">
+            <label for="musica">Música</label>
+            <input id="musica" name="q" type="text"/>
+        </div>
+        <button>Enviar</button>
+    </form>
+</body>
+<script>
+    const musica = document.querySelector('.musica');
+    const input = document.querySelector('#musica');
+    const form = document.querySelector('form');
+    const select = document.querySelector('select');
+
+    let song;
+
+    select.addEventListener('change',()=>{
+        musica.style.display = 'block';
+        switch (select.value) {
+            case 'gospel':
+                input.value = 'Cassiane';
+                break;
+            case 'rock':
+            input.value = 'Legião Urbana';
+                break;
+            case 'sertanejo':
+            input.value = 'Chitãozinho e Xororó';
+                break;
+            default:
+                musica.style.display = 'none';
+                return;
+        }
+    });
+
+    form.addEventListener('submit',(event)=>{
+        if(select.value==='none') {
+            event.preventDefault();
+            return;
+        }
+    });
+
+</script>
+
+</html>
