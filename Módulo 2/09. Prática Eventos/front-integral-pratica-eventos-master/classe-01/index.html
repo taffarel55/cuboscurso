@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" type="text/css"/>
+</head>
+<body>
+    <div class="content">
+        <h1>Início</h1>
+        <div class="img-group">
+            <div class="img-item">
+                <picture>
+                    <img src="assets/gallery/image 1.png"/>
+                </picture>
+                <div class="description">
+                    <div class="name">Lorem ipsum</div>
+                    <div class="time">há 1 mês</div>
+                </div> 
+            </div>
+            <div class="img-item">
+                <img src="assets/gallery/image 2.png"/>
+                <div class="description">
+                    <div class="name">Lorem ipsum</div>
+                    <div class="time">há 1 mês</div>
+                </div> 
+            </div>
+            <div class="img-item">
+                <img src="assets/gallery/image 3.png"/>
+                <div class="description">
+                    <div class="name">Lorem ipsum</div>
+                    <div class="time">há 1 mês</div>
+                </div> 
+            </div>
+            <div class="img-item">
+                <img src="assets/gallery/image 4.png"/>
+                <div class="description">
+                    <div class="name">Lorem ipsum</div>
+                    <div class="time">há 1 mês</div>
+                </div> 
+            </div>
+            <div class="img-item">
+                <img src="assets/gallery/image 5.png"/>
+                <div class="description">
+                    <div class="name">Lorem ipsum</div>
+                    <div class="time">há 1 mês</div>
+                </div> 
+            </div>
+            <div class="img-item">
+                <img src="assets/gallery/image 6.png"/>
+                <div class="description">
+                    <div class="name">Lorem ipsum</div>
+                    <div class="time">há 1 mês</div>
+                </div> 
+            </div>
+            <div class="img-item">
+                <img src="assets/gallery/image 7.png"/>
+                <div class="description">
+                    <div class="name">Lorem ipsum</div>
+                    <div class="time">há 1 mês</div>
+                </div> 
+            </div>
+            <div class="img-item">
+                <img src="assets/gallery/image 8.png"/>
+                <div class="description">
+                    <div class="name">Lorem ipsum</div>
+                    <div class="time">há 1 mês</div>
+                </div> 
+            </div>
+            <div class="img-item">
+                <img src="assets/gallery/image 9.png"/>
+                <div class="description">
+                    <div class="name">Lorem ipsum</div>
+                    <div class="time">há 1 mês</div>
+                </div> 
+            </div>
+            <div class="img-item">
+                <img src="assets/gallery/image 10.png"/>
+                <div class="description">
+                    <div class="name">Lorem ipsum</div>
+                    <div class="time">há 1 mês</div>
+                </div> 
+            </div>
+        </div>
+    </div>
+    <div class="sidebar">
+        <div class="sidebar-items">
+            <a href=#>
+                <div class="sidebar-item">
+                    <img src="/assets/closed-menu.svg"/>
+                </div>
+            </a>
+            <a href=#>
+                <div class="sidebar-item">
+                    <img src="/assets/active-home.svg"/>
+                    <div class="sidebar-text escondido active">Início</div>
+                </div>
+            </a>
+            <a href=#>
+                <div class="sidebar-item">
+                    <img src="/assets/inactive-like.svg"/>
+                    <div class="sidebar-text escondido">Favoritos</div>
+                </div>
+            </a>
+        </div>
+        <a href=#>
+            <div class="sidebar-item">
+                <img src="/assets/inactive-settings.svg"/>
+                <div class="sidebar-text escondido">Configurações</div>
+            </div>
+        </a>
+    </div>
+    <div class="modal escondido" tabindex="-1">
+        <div class="img-modal">
+            <picture>
+                <img/>
+            </picture>
+            <!-- <div class="like escondido">
+                <img src="/assets/like.svg"/>
+            </div> -->
+        </div>
+        <div class="btn-close">
+            <img src="/assets/close-modal.svg"">
+        </div>
+        <div class="prev-arrow">
+            <img src="/assets/prev.svg" />
+        </div>
+        <div class="next-arrow">
+            <img src="/assets/next.svg" />
+        </div>
+    </div>
+    <script>
+        const menuItem = document.querySelectorAll('.sidebar-text');
+        const button = document.querySelector('.sidebar-item');
+        const img = document.querySelector('.sidebar-item img');
+        const content = document.querySelector('.content');
+
+        button.addEventListener('click',()=>{
+            if(img.src.includes('closed-menu')) {
+                img.src='/assets/open-menu.svg';
+                content.style.marginLeft = "64px";
+            } else {
+                img.src='/assets/closed-menu.svg';
+                content.style.marginLeft = "64px";
+            }
+            menuItem.forEach(item=>{
+                item.classList.toggle('escondido');
+            });
+        });
+
+        const imgGaleria = document.querySelectorAll('.img-item img');
+        const modal = document.querySelector('.modal');
+        const modalImg = document.querySelector('.modal img');
+        const btnClose = document.querySelector('.btn-close');
+        
+        const firstImage = imgGaleria[0];
+        const lastImage = imgGaleria[imgGaleria.length-1];
+
+        const prev = document.querySelector('.prev-arrow');
+        const next = document.querySelector('.next-arrow');
+
+        imgGaleria.forEach((img)=>{
+            img.addEventListener('click', (event)=>{
+                modal.classList.toggle('escondido');
+                modalImg.src = event.target.src;
+                verificarSetas();
+            });
+        });
+
+        btnClose.addEventListener('click', (event)=>{
+            modal.classList.toggle('escondido');
+        });
+
+        document.addEventListener('keydown', (event)=>{
+            const keyCode = event.key;
+            if(!modal.classList.contains('escondido')) {
+                if (keyCode === 'Escape') {
+                    modal.classList.toggle('escondido');
+                } else if (keyCode === 'ArrowLeft') {
+                    getPrev(event);
+                } else if (keyCode === 'ArrowRight') {
+                    getNext(event);
+                }
+            }
+        });
+
+        prev.addEventListener('click', getPrev);
+        next.addEventListener('click', getNext);
+
+        const like = document.querySelector('.like');
+        const picture = document.querySelector('picture');
+
+        modalImg.addEventListener('dblclick', function() {
+            picture.classList.toggle('liked');
+        });
+
+        function getPrev(event) {
+            event.stopPropagation();
+            const i = [...imgGaleria].findIndex(x=>x.src==modalImg.src);
+            if (i>0) modalImg.src = imgGaleria[i-1].src;
+            verificarSetas();
+        }
+
+        function getNext(event) {
+            event.stopPropagation();
+            const i = [...imgGaleria].findIndex(x=>x.src==modalImg.src);
+            if (i<imgGaleria.length-1) modalImg.src = imgGaleria[i+1].src;
+            verificarSetas();
+        }
+        
+        function verificarSetas() {
+            if(modalImg.src===firstImage.src) {
+                prev.style.display = 'none';
+                next.style.display = 'block';
+            } else if (modalImg.src===lastImage.src) {
+                next.style.display = 'none';
+                prev.style.display = 'block';
+            } else {
+                next.style.display = 'block';
+                prev.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

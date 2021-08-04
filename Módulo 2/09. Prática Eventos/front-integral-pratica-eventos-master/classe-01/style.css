@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: -moz-none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.content {
+    margin-left: 64px;
+}
+
+h1 {
+    margin: 100px auto 50px auto;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 42px;
+    letter-spacing: 0em;
+}
+
+.img-group {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 15px;
+    gap: 30px;
+    justify-content: center;
+}
+
+.img-item {
+    position: relative;
+}
+
+.img-item img {
+    cursor: pointer;
+    opacity: 1;
+    -webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+.img-item img:hover {
+    -webkit-transform: scale(1.05);
+	transform: scale(1.05);
+    opacity: .8;
+}
+
+.description {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 23px;
+    letter-spacing: 0em;
+    margin-top: 18px;
+    display: flex;
+    justify-content: space-between;
+    color: #000000;
+}
+
+.time {
+    color: #5C5C5C;
+}
+
+.sidebar {
+    position: fixed;
+    top:0;
+    background: #313131;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-between;
+}
+
+.sidebar-item {
+    display: flex;
+    align-items: center;
+}
+
+.sidebar a {
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #888888;
+}
+
+.sidebar-item img {
+    margin: 20px;
+}
+
+.sidebar-text {
+    margin: 0px 25px 0px 5px;
+}
+
+.escondido {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.active {
+    color: #FFFFFF;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #00000099;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: visibility 0.2s, opacity 0.5s;
+    -webkit-transition: visibility 0.2s, opacity 0.5s;
+    z-index: 2;
+}
+
+.img-modal picture img {
+    width: 40vw;
+}
+
+.modal div {
+    position: fixed;
+    cursor: pointer;
+}
+
+.img-modal {
+    position: relative !important;
+    cursor: default !important;
+}
+
+.btn-close {
+    top: 90px;
+    right: 90px;
+}
+
+.prev-arrow {
+    left: 20%;
+}
+
+.next-arrow {
+    right: 20%;
+}
+
+.like {
+    position: absolute !important;
+    top: 18px;
+    right: 18px;
+    transition: visibility 0.2s, opacity 0.2s;
+    -webkit-transition: visibility 0.2s, opacity 0.2s;
+}
+
+picture.liked::before {
+    content: url('/assets/like.svg');
+    position: absolute !important;
+    top: 18px;
+    right: 18px;
+    z-index: 1;
+}
