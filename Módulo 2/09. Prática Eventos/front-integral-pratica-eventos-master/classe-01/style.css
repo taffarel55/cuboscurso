@@ -13,6 +13,11 @@
 
 .content {
     margin-left: 64px;
+    margin-bottom: 100px;
+    -webkit-transition: all 0.5s 0s ease;
+    -moz-transition: all 0.5s 0s ease;
+    -o-transition: all 0.5s 0s ease;
+    transition: all 0.5s 0s ease;
 }
 
 h1 {
@@ -125,8 +130,10 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: visibility 0.2s, opacity 0.5s;
-    -webkit-transition: visibility 0.2s, opacity 0.5s;
+    -webkit-transition: all 0.5s 0s ease;
+    -moz-transition: all 0.5s 0s ease;
+    -o-transition: all 0.5s 0s ease;
+    transition: all 0.5s 0s ease;
     z-index: 2;
 }
 
@@ -157,18 +164,40 @@ h1 {
     right: 20%;
 }
 
-.like {
-    position: absolute !important;
-    top: 18px;
-    right: 18px;
-    transition: visibility 0.2s, opacity 0.2s;
-    -webkit-transition: visibility 0.2s, opacity 0.2s;
-}
-
 picture.liked::before {
     content: url('/assets/like.svg');
     position: absolute !important;
     top: 18px;
     right: 18px;
     z-index: 1;
+}
+
+picture.liking::before {
+    content: url('/assets/like.svg');
+    position: absolute !important;
+    right: calc(75%);
+    top: calc(75%);
+    animation-name: liking;
+    animation-duration: 1.5s;
+    z-index: 1;
+    /* background: white; */
+}
+
+@keyframes liking {
+    0%   {
+        -webkit-transform: scale(1.05);
+	    transform: scale(1.05);
+    }
+    50%  { 
+        -webkit-transform: scale(2.5);
+	    transform: scale(2.5);
+    }
+    75% {
+        -webkit-transform: scale(1.0);
+	    transform: scale(1.0); 
+    }
+    100% {
+        right: 18px;
+        top: 18px
+    }
 }

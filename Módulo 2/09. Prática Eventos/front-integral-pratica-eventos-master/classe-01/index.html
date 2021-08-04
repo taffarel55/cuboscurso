@@ -21,63 +21,81 @@
                 </div> 
             </div>
             <div class="img-item">
-                <img src="assets/gallery/image 2.png"/>
+                <picture>
+                    <img src="assets/gallery/image 2.png"/>
+                </picture>
                 <div class="description">
                     <div class="name">Lorem ipsum</div>
                     <div class="time">há 1 mês</div>
                 </div> 
             </div>
             <div class="img-item">
-                <img src="assets/gallery/image 3.png"/>
+                <picture>
+                    <img src="assets/gallery/image 3.png"/>
+                </picture>
                 <div class="description">
                     <div class="name">Lorem ipsum</div>
                     <div class="time">há 1 mês</div>
                 </div> 
             </div>
             <div class="img-item">
-                <img src="assets/gallery/image 4.png"/>
+                <picture>
+                    <img src="assets/gallery/image 4.png"/>
+                </picture>
                 <div class="description">
                     <div class="name">Lorem ipsum</div>
                     <div class="time">há 1 mês</div>
                 </div> 
             </div>
             <div class="img-item">
-                <img src="assets/gallery/image 5.png"/>
+                <picture>
+                    <img src="assets/gallery/image 5.png"/>
+                </picture>
                 <div class="description">
                     <div class="name">Lorem ipsum</div>
                     <div class="time">há 1 mês</div>
                 </div> 
             </div>
             <div class="img-item">
-                <img src="assets/gallery/image 6.png"/>
+                <picture>
+                    <img src="assets/gallery/image 6.png"/>
+                </picture>
                 <div class="description">
                     <div class="name">Lorem ipsum</div>
                     <div class="time">há 1 mês</div>
                 </div> 
             </div>
             <div class="img-item">
-                <img src="assets/gallery/image 7.png"/>
+                <picture>
+                    <img src="assets/gallery/image 7.png"/>
+                </picture>
                 <div class="description">
                     <div class="name">Lorem ipsum</div>
                     <div class="time">há 1 mês</div>
                 </div> 
             </div>
             <div class="img-item">
-                <img src="assets/gallery/image 8.png"/>
+                <picture>
+                    <img src="assets/gallery/image 8.png"/>
+                </picture>
                 <div class="description">
                     <div class="name">Lorem ipsum</div>
                     <div class="time">há 1 mês</div>
                 </div> 
             </div>
             <div class="img-item">
-                <img src="assets/gallery/image 9.png"/>
+                <picture>
+                    <img src="assets/gallery/image 9.png"/>
+                </picture>
                 <div class="description">
                     <div class="name">Lorem ipsum</div>
                     <div class="time">há 1 mês</div>
                 </div> 
             </div>
             <div class="img-item">
-                <img src="assets/gallery/image 10.png"/>
+                <picture>
+                    <img src="assets/gallery/image 10.png"/>
+                </picture>
                 <div class="description">
                     <div class="name">Lorem ipsum</div>
                     <div class="time">há 1 mês</div>
@@ -93,13 +111,13 @@
                 </div>
             </a>
             <a href=#>
-                <div class="sidebar-item">
+                <div class="sidebar-item home active">
                     <img src="/assets/active-home.svg"/>
-                    <div class="sidebar-text escondido active">Início</div>
+                    <div class="sidebar-text escondido">Início</div>
                 </div>
             </a>
             <a href=#>
-                <div class="sidebar-item">
+                <div class="sidebar-item favorito">
                     <img src="/assets/inactive-like.svg"/>
                     <div class="sidebar-text escondido">Favoritos</div>
                 </div>
@@ -132,6 +150,7 @@
         </div>
     </div>
     <script>
+        // Sidebar
         const menuItem = document.querySelectorAll('.sidebar-text');
         const button = document.querySelector('.sidebar-item');
         const img = document.querySelector('.sidebar-item img');
@@ -140,7 +159,7 @@
         button.addEventListener('click',()=>{
             if(img.src.includes('closed-menu')) {
                 img.src='/assets/open-menu.svg';
-                content.style.marginLeft = "64px";
+                content.style.marginLeft = "200px";
             } else {
                 img.src='/assets/closed-menu.svg';
                 content.style.marginLeft = "64px";
@@ -149,15 +168,12 @@
                 item.classList.toggle('escondido');
             });
         });
-
+        
+        // Galeria
         const imgGaleria = document.querySelectorAll('.img-item img');
         const modal = document.querySelector('.modal');
         const modalImg = document.querySelector('.modal img');
         const btnClose = document.querySelector('.btn-close');
-        
-        const firstImage = imgGaleria[0];
-        const lastImage = imgGaleria[imgGaleria.length-1];
-
         const prev = document.querySelector('.prev-arrow');
         const next = document.querySelector('.next-arrow');
 
@@ -165,7 +181,7 @@
             img.addEventListener('click', (event)=>{
                 modal.classList.toggle('escondido');
                 modalImg.src = event.target.src;
-                verificarSetas();
+                verificarModal();
             });
         });
 
@@ -176,50 +192,105 @@
         document.addEventListener('keydown', (event)=>{
             const keyCode = event.key;
             if(!modal.classList.contains('escondido')) {
-                if (keyCode === 'Escape') {
+                if (keyCode === ' ') {
+                    event.preventDefault();
+                    liking();
+                } else if (keyCode === 'Escape') {
                     modal.classList.toggle('escondido');
                 } else if (keyCode === 'ArrowLeft') {
                     getPrev(event);
                 } else if (keyCode === 'ArrowRight') {
                     getNext(event);
-                }
+                } 
             }
         });
 
         prev.addEventListener('click', getPrev);
         next.addEventListener('click', getNext);
 
-        const like = document.querySelector('.like');
-        const picture = document.querySelector('picture');
+        // Liking
+        const picture = document.querySelectorAll('.img-item picture');
+        const pictureModal = document.querySelector('.img-modal picture');
 
-        modalImg.addEventListener('dblclick', function() {
-            picture.classList.toggle('liked');
+        modalImg.addEventListener('dblclick', liking);
+
+        // Filtering like
+        const favorito = document.querySelector('.favorito');
+        const home = document.querySelector('.home')
+        const imgItem = document.querySelectorAll('.img-item');
+        const h1 = document.querySelector('h1');
+
+        home.addEventListener('click',()=>{
+            if(favorito.classList.contains('active')) {
+                home.classList.add('active');
+                favorito.classList.remove('active');
+                home.children[0].src='/assets/active-home.svg'
+                favorito.children[0].src='/assets/inactive-like.svg';
+                h1.textContent='Início';
+            }
+            imgItem.forEach((pic)=>pic.style.display='block');
+        });
+
+        favorito.addEventListener('click',()=>{
+            if(home.classList.contains('active')) {
+                home.classList.remove('active');
+                favorito.classList.add('active');
+                favorito.children[0].src='/assets/active-like.svg'
+                home.children[0].src='/assets/inactive-home.svg';
+                h1.textContent='Favoritos';
+            }
+            imgItem.forEach((pic)=>{
+                if(!pic.children[0].classList.contains('liked')) {
+                    pic.style.display='none';
+                }  
+            });
         });
 
         function getPrev(event) {
             event.stopPropagation();
             const i = [...imgGaleria].findIndex(x=>x.src==modalImg.src);
             if (i>0) modalImg.src = imgGaleria[i-1].src;
-            verificarSetas();
+            verificarModal();
         }
 
         function getNext(event) {
             event.stopPropagation();
             const i = [...imgGaleria].findIndex(x=>x.src==modalImg.src);
             if (i<imgGaleria.length-1) modalImg.src = imgGaleria[i+1].src;
-            verificarSetas();
+            verificarModal();
         }
         
-        function verificarSetas() {
-            if(modalImg.src===firstImage.src) {
+        function verificarModal() {
+            const i = [...imgGaleria].findIndex(x=>x.src==modalImg.src);
+            if(picture[i].classList.contains('liked')) {
+                pictureModal.classList.add('liked');
+            } else {
+                pictureModal.classList.remove('liked');
+            }
+            if(i===0) {
                 prev.style.display = 'none';
                 next.style.display = 'block';
-            } else if (modalImg.src===lastImage.src) {
+            } else if (i===imgGaleria.length-1) {
                 next.style.display = 'none';
                 prev.style.display = 'block';
             } else {
                 next.style.display = 'block';
                 prev.style.display = 'block';
+            }
+        }
+
+        function liking() {
+            const i = [...imgGaleria].findIndex(x=>x.src==modalImg.src);
+            if(!pictureModal.classList.contains('liked')) {
+                pictureModal.classList.add('liking');
+                setTimeout(function() {
+                    pictureModal.classList.remove('liking');
+                    picture[i].classList.toggle('liked');
+                    verificarModal();
+                }, 1500);
+            } else {
+                picture[i].classList.toggle('liked');
+                verificarModal();
             }
         }
     </script>
