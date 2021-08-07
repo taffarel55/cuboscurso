@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Consulta Pokemons</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            height:100vh;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        label, input {
+            display: block;
+            width: 100%;
+        }
+        .card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items:center;
+        }
+    </style>
+</head>
+<body class="w3-red">
+    <form class="w3-container">
+        <h1>Consulta Pokemon</h1>
+        
+            <label for="pokemon">Pokemon</label>
+            <select id="pokemon">
+                <option value="none">Selecione</option>
+            </select>
+        
+        <div class="card">
+            <h2></h2>
+            <img>
+            <h3></h3>
+            <ul></ul>
+        </div>
+    </form>
+</body>
+<script>
+    const pokemon = document.querySelector('#pokemon');
+    const h2 = document.querySelector('h2');
+    const h3 = document.querySelector('h3');
+    const img = document.querySelector('img');
+    const ul = document.querySelector('ul');
+
+    adcElemento();
+    
+    pokemon.addEventListener('change', async () =>{
+        if(pokemon.value==='none') {
+            h3.textContent='';
+            h2.textContent = '';
+            img.src= '';
+            return;
+        }
+        h3.textContent = 'Habilidades';
+        const body = await (await fetch('https://pokeapi.co/api/v2/pokemon/'+pokemon.value)).json();
+        h2.textContent = body.name.toUpperCase()[0] + body.name.slice(1);
+        img.src=body.sprites.front_default;
+        const habilidades = body.abilities;
+        console.log(habilidades);
+        for (let i = 0; i < habilidades.length; i++) {
+            let li = document.createElement("li");
+            li.textContent = habilidades[i].ability.name.toUpperCase()[0] + habilidades[i].ability.name.slice(1);
+            ul.appendChild(li);
+        }
+        
+    });
+
+    async function adcElemento() {
+        const lista = (await (await fetch('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1118')).json()).results;
+        for(let i=0; i<lista.length; i++) {
+            let opt = document.createElement("option");
+            opt.value = lista[i].name;
+            opt.textContent = lista[i].name.toUpperCase()[0] + lista[i].name.slice(1);
+            pokemon.appendChild(opt);
+        }
+    }
+</script>
+</html>
