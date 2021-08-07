@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <div>
+            <label for="moeda">Criptomoeda</label>
+            <input id="moeda" type="text"/>
+        </div>
+        <p>Maior valor nas ultimas 24h: <b class="valor"></b></p>
+    </form>
+</body>
+<script>
+    const cripto = document.querySelector('#moeda');
+    const valor = document.querySelector('.valor');
+
+    cripto.addEventListener('change',async ()=>{
+        const resposta = await fetch('https://www.mercadobitcoin.net/api/'+cripto.value+'/ticker/');
+        const body = await resposta.json();
+        valor.textContent = 'R$' + Number(body.ticker.high).toFixed(2);
+    });
+</script>
+</html>

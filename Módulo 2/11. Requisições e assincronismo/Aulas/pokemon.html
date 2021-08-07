@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <div>
+            <label for="pokemon">Pokemon</label>
+            <input id="pokemon" type="text"/>
+        </div>
+        <div>
+            <h1></h1>
+            <img>
+        </div>
+    </form>
+</body>
+<script>
+    const pokemon = document.querySelector('#pokemon');
+    const h1 = document.querySelector('h1');
+    const img = document.querySelector('img');
+
+    pokemon.addEventListener('change', async () =>{
+        const body = await (await fetch('https://pokeapi.co/api/v2/pokemon/'+pokemon.value)).json();
+        h1.textContent = body.name.toUpperCase()[0] + body.name.slice(1);
+        img.src=body.sprites.front_default;
+    });
+    
+</script>
+</html>

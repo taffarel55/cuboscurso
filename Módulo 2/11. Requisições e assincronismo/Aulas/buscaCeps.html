@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Buscador de CEPs</h1>
+    <form>
+        <div>
+            <label for="cep">CEPs</label>
+            <input id="cep" type="number"/>
+        </div>
+        <div>
+            <label for="uf">Estado</label>
+            <input id="uf" type="text"/>
+        </div>
+        <div>
+            <label for="cidade">Cidade</label>
+            <input id="cidade" type="text"/>
+        </div>
+        <div>
+            <label for="rua">Rua</label>
+            <input id="rua" type="text"/>
+        </div>
+    </form>
+    <script>
+        const cep = document.querySelector('#cep');
+        const uf = document.querySelector('#uf');
+        const cidade = document.querySelector('#cidade');
+        const rua = document.querySelector('#rua');
+        
+        cep.addEventListener('change', async ()=>{
+            if (cep.value.length !== 8) {
+                console.log('Erro 1');
+                return;
+            }
+            
+            const response = await fetch('https://viacep.com.br/ws/'+cep.value+'/json');
+            const body = await response.json();
+            
+            if (body.erro) {
+                console.log('Erro 2');
+                return;
+            }
+
+            console.log(body);
+            uf.value = body.uf;
+            cidade.value = body.localidade;
+            rua.value = body.logradouro;
+        });
+        
+    </script>
+</body>
+</html>
