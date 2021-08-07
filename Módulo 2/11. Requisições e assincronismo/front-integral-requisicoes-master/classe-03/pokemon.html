@@ -63,10 +63,13 @@
     adcElemento();
     
     pokemon.addEventListener('change', async () =>{
+        ul.innerHTML = '';
         if(pokemon.value==='none') {
             h3.textContent='';
             h2.textContent = '';
             img.src= '';
+            console.log(ul)
+            
             return;
         }
         h3.textContent = 'Habilidades';
@@ -74,7 +77,6 @@
         h2.textContent = body.name.toUpperCase()[0] + body.name.slice(1);
         img.src=body.sprites.front_default;
         const habilidades = body.abilities;
-        console.log(habilidades);
         for (let i = 0; i < habilidades.length; i++) {
             let li = document.createElement("li");
             li.textContent = habilidades[i].ability.name.toUpperCase()[0] + habilidades[i].ability.name.slice(1);
