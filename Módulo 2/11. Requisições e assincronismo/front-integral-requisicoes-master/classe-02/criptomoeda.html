@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Criptomoedas</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            height:100vh;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        label, input {display: block}
+    </style>
+</head>
+<body class="w3-blue">
+    <form class="w3-container">
+        <h1>Criptomoedas</h1>
+        <div>
+            <label for="moeda">Criptomoeda</label>
+            <select id="moeda">
+                <option value="none">Selecione</option>
+                <option value="btc">Bitcoin</option>
+                <option value="eth">Ethereum</option>
+                <option value="ltc">Litecoin</option>
+            </select>
+        </div>
+        <p>Maior valor nas ultimas 24h: <b class="high"></b></p>
+        <p>Quantidade negociada nas ultimas 24h: <b class="vol"></b></p>
+        <p>Maior oferta de compra nas ultimas 24h: <b class="buy"></b></p>
+    </form>
+</body>
+<script>
+    const cripto = document.querySelector('#moeda');
+
+    const high = document.querySelector('.high');
+    const vol = document.querySelector('.vol');
+    const buy = document.querySelector('.buy');
+
+    cripto.addEventListener('change',async ()=>{
+        if (cripto.value === 'none') {
+            high.textContent = '';
+            vol.textContent = '';
+            buy.textContent = '';
+            return;
+        }
+        const resposta = await fetch('https://www.mercadobitcoin.net/api/'+cripto.value+'/ticker/');
+        const body = await resposta.json();
+        high.textContent = 'R$ ' + Number(body.ticker.high).toFixed(2);
+        vol.textContent = Number(body.ticker.vol).toFixed(2) + ' ' + cripto.value.toUpperCase();
+        buy.textContent = 'R$ ' + Number(body.ticker.buy).toFixed(2);
+    });
+</script>
+</html>
