@@ -16,7 +16,7 @@ async function buscarCEP(req, res) {
     }
 
     // Busca do CEP no servidor local
-    const local = ceps.find(l=>l.cep.slice(0,5)+l.cep.slice(6,9)===cep);
+    const local = ceps.find(l=>l.cep.split('-').join('')===cep);
     if(local) {
         console.log(`[server] CEP encontrado nos arquivos!`);
         res.json(local);
