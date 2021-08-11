@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="script.js" defer></script>
     <title>Document</title>
     <style>
         body {
@@ -39,58 +40,4 @@
     <input class="busca w3-input w3-border w3-margin">
     <div class="paises"></div>
 </body>
-<script>
-    let paises = [];
-    const paisesDiv = document.querySelector('.paises');
-    const busca = document.querySelector('.busca');
-    
-    let i = 0;
-    window.addEventListener('DOMContentLoaded', async ()=>{
-        paises = await getData('');
-        paises.forEach(pais=>{
-            // if (i++>50) return;
-            
-            let div = document.createElement('div');
-            div.classList.add('w3-card','w3-light-grey','w3-container','w3-center','w3-padding-16','w3-round-xlarge','w3-mobile'); 
-
-            let h2 = document.createElement("h2");
-            h2.textContent = pais.name;
-
-            let span1 = document.createElement("span");
-            span1.textContent = pais.region;
-
-            let span2 = document.createElement("span");
-            span2.textContent = pais.capital;
-
-            let p = document.createElement("p");
-            p.textContent = pais.population;
-
-            let img = document.createElement("img");
-            img.src = pais.flag;
-            img.classList.add('w3-round')
-
-            div.append(h2,span1,span2,p,img);
-            paisesDiv.append(div);
-        });
-    });
-    
-    async function getData(path) {
-        let response = await fetch('https://restcountries.eu/rest/v2/all'+path);
-        let data = await response.json();
-        return data;
-    }
-
-    busca.addEventListener('keydown',(event)=>{
-        if(!(event.key==='Enter' && busca.value.length)) return;
-        Array.from(paisesDiv.children).forEach(pais=>{
-            const elemento = pais.children[0].textContent.toLocaleLowerCase();
-            const pesquisa = event.target.value.toLocaleLowerCase();
-            if (elemento.includes(pesquisa)) {
-                pais.classList.remove('w3-hide');
-            } else {
-                pais.classList.add('w3-hide');
-            }
-        });
-    });
-</script>
 </html>
