@@ -1,5 +1,5 @@
-const express = require('express');
-const rotas = require('./rotas');
+const express = require("express");
+const rotas = require("./rotas");
 const port = process.env.PORT || 8000;
 
 const app = express();
@@ -8,4 +8,4 @@ app.use(express.json());
 
 app.use(rotas);
 
-app.listen(port, ()=>console.log('Iniciado na porta '+port));
+app.listen(port, () => console.log("Iniciado na porta " + port));
