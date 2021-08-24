@@ -15,9 +15,9 @@
     "yup": "^0.32.9"
   },
   "devDependencies": {
-    "nodemon": "^2.0.12",
     "jest": "^27.0.6",
     "jest-fail-on-console": "^2.0.4",
+    "nodemon": "^2.0.12",
     "supertest": "^6.1.5"
   }
 }
