@@ -28,7 +28,6 @@ function criarConta(req, res) {
   adicionarConta(conta, res);
 }
 
-// TODO: Ver se limpa mais
 function atualizarConta(req, res) {
   const usuario = req.body;
   verificarVazio(usuario);
@@ -36,26 +35,11 @@ function atualizarConta(req, res) {
   const { numeroConta } = req.params;
   const conta = encontrarConta(numeroConta);
 
-  validarUsuario({
-    nome: conta.usuario.nome ?? usuario.nome,
-    cpf: conta.usuario.cpf ?? usuario.cpf,
-    data_nascimento: conta.usuario.data_nascimento ?? usuario.data_nascimento,
-    telefone: conta.usuario.telefone ?? usuario.telefone,
-    email: conta.usuario.email ?? usuario.email,
-    senha: conta.usuario.senha ?? usuario.senha,
-  });
-
+  validarUsuario({...conta.usuario, ...usuario});
   verificarUnicidade({ numero: numeroConta, usuario });
 
-  if (usuario.nome !== undefined) conta.usuario.nome = usuario.nome;
-  if (usuario.cpf !== undefined) conta.usuario.nome = usuario.cpf;
-  if (usuario.data_nascimento !== undefined)
-    conta.usuario.data_nascimento = usuario.data_nascimento;
-  if (usuario.telefone !== undefined) conta.usuario.telefone = usuario.telefone;
-  if (usuario.email !== undefined) conta.usuario.email = usuario.email;
-  if (usuario.senha !== undefined) conta.usuario.senha = usuario.senha;
-
-  res.json(conta);
+  conta.usuario = { ...conta.usuario, ...usuario };
+  res.json(conta.usuario);
 }
 
 function substituirConta(req, res) {

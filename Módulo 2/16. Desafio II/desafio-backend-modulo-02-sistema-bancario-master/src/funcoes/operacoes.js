@@ -6,7 +6,6 @@ function realizarDeposito(conta, deposito) {
     throw new Erro(400, "Valor do deposito deve ser inteiro e positivo");
 
   conta.saldo += deposito.valor;
-
   dados.depositos.push({ data: new Date().toLocaleString(), ...deposito });
 }
 

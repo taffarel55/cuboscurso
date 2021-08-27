@@ -2,36 +2,22 @@ const dados = require("../dados/bancodedados");
 const { Erro } = require("./erros");
 
 function validarUsuario(usuario) {
-  let mensagem;
-  if (!usuario.nome) mensagem = "O campo 'nome' é obrigatório";
-  if (!usuario.cpf) mensagem = "O campo 'cpf' é obrigatório";
-  if (!usuario.data_nascimento)
-    mensagem = "O campo 'data_nascimento' é obrigatório";
-  if (!usuario.telefone) mensagem = "O campo 'telefone' é obrigatório";
-  if (!usuario.email) mensagem = "O campo 'email' é obrigatório";
-  if (!usuario.senha) mensagem = "O campo 'senha' é obrigatório";
-
-  if (mensagem) throw new Erro(400, mensagem);
+  ["nome", "cpf", "data_nascimento", "telefone", "email", "senha"].forEach(
+    (atributo) => {
+      if (!usuario.hasOwnProperty(atributo))
+        throw new Erro(400, `O campo '${atributo}' é obrigatório`);
+    }
+  );
 }
 
 function verificarUnicidade(conta) {
-  let mensagem;
-  if (
-    dados.contas.some(
-      (c) => c.usuario.cpf === conta.usuario.cpf && c.numero !== conta.numero
-    )
-  )
-    mensagem = "Já existe uma conta com este CPF";
-
-  if (
-    dados.contas.some(
-      (c) =>
-        c.usuario.email === conta.usuario.email && c.numero !== conta.numero
-    )
-  )
-    mensagem = "Já existe este email cadastrado em uma conta";
-
-  if (mensagem) throw new Erro(400, mensagem);
+  dados.contas.some((c) => {
+    if (c.numero === conta.numero) return;
+    ["cpf", "email"].forEach((atributo) => {
+      if (c.usuario[atributo] === conta.usuario[atributo])
+        throw new Erro(400, `Já existe uma conta com este ${atributo}`);
+    });
+  });
 }
 
 function validarTransacao(transacao, tipo) {
