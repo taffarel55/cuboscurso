@@ -3,11 +3,20 @@
 
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CubosFlix</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="theme-color" content="#a785ed">
+    <meta name="keywords" content="assistir cubosflix filmes series">
+    <meta name="description" content="Venha assistir seus filmes preferidos aqui na Cubosflix!">
+    <meta name="author" content="Mauricio Taffarel">
     <link href="https://fonts.googleapis.com/css?family=Manrope:200,300,regular,500,600,700,800" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="elements.js" defer></script>
+    <script src="functions.js" defer></script>
     <script src="script.js" defer></script>
+    <link rel="shortcut icon" type="image" href="assets/logo.svg" />
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
 
   <body>
@@ -21,14 +30,6 @@
       <div class="movies-container">
         <img class="btn-prev" src="./assets/seta-esquerda-preta.svg" alt="Seta esquerda">
         <div class="movies">
-          <div class="movie">
-            <div class="movie__info">
-              <span class="movie__title"></span>
-              <span class="movie__rating">
-                <img src="./assets/estrela.svg" alt="Estrela">
-              </span>
-            </div>
-          </div>
         </div>
         <img class="btn-next" src="./assets/seta-direita-preta.svg" alt="Seta direita">
       </div>
@@ -36,7 +37,9 @@
       <div class="highlight">
         <a class="highlight__video-link" href="#" target="_blank">
           <div class="highlight__video">
-            <img src="./assets/play.svg" alt="Play">
+            <figure>
+              <img src="./assets/play.svg" alt="Play">
+            </figure>
           </div>
         </a>
         <div class="highlight__info">
