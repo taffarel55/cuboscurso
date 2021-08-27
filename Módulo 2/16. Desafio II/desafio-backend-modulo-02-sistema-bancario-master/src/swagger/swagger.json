@@ -1,0 +1,232 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "REST API",
+    "description": ""
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "tags": [],
+  "schemes": [
+    "http"
+  ],
+  "consumes": [],
+  "produces": [],
+  "paths": {
+    "/contas": {
+      "get": {
+        "tags": ["Listar contas"],
+        "description": "Lista todas as contas bancárias existentes",
+        "parameters": [{
+            "name": "senha_banco",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": "Senha do gerente"
+          }],
+        "responses": {}
+      },
+      "post": {
+        "tags": [],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/contas/{numeroConta}/usuario": {
+      "patch": {
+        "tags": ["Atualizar usuário da conta bancária"],
+        "description": "Esse endpoint atualiza apenas os dados do usuário de uma conta bancária.",
+        "parameters": [
+          {
+            "name": "senha_banco",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "numeroConta",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "usuario",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nome": {
+                  "type": "string",
+                  "description": "Nome da pessoa"
+                },
+                "cpf": {
+                  "type": "string",
+                  "description": "CPF"
+                },
+                "data_nascimento": {
+                  "type": "string",
+                  "description": "Data de nascimento"
+                },
+                "telefone": {
+                  "type": "string",
+                  "description": "Telefone"
+                },
+                "email": {
+                  "type": "string",
+                  "description": "Email principal"
+                },
+                "senha": {
+                  "type": "string",
+                  "description": "Senha do cliente"
+                }
+              },
+              "example":{
+                "nome": "Pedro",
+                "email": "taffarel555@bol.com"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200":{
+            "description": "Objeto criado",
+            "content": {
+              "application/json":{
+                "schema":{
+                  "type": "object",
+                  "properties": {
+                    "nome": {
+                      "type": "string",
+                      "description": "Nome da pessoa"
+                    },
+                    "cpf": {
+                      "type": "string",
+                      "description": "CPF"
+                    },
+                    "data_nascimento": {
+                      "type": "string",
+                      "description": "Data de nascimento"
+                    },
+                    "telefone": {
+                      "type": "string",
+                      "description": "Telefone"
+                    },
+                    "email": {
+                      "type": "string",
+                      "description": "Email principal"
+                    },
+                    "senha": {
+                      "type": "string",
+                      "description": "Senha do cliente"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["Substituir conta bancária"],
+        "description": "Esse endpoint atualiza uma conta bancária.",
+        "parameters": [
+          {
+            "name": "numeroConta",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/contas/{numeroConta}": {
+      "delete": {
+        "tags": ["Excluir conta"],
+        "description": "Esse endpoint deve exclui uma conta bancária existente",
+        "parameters": [
+          {
+            "name": "numeroConta",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/transacoes/depositar": {
+      "post": {
+        "tags": ["Depositar"],
+        "description": "Esse endpoint soma o valor do depósito ao saldo de uma conta válida e registra essa transação",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/transacoes/sacar": {
+      "post": {
+        "tags": ["Sacar"],
+        "description": "Esse endpoint realiza o saque de um valor em uma determinada conta bancária e registra essa transação",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/transacoes/transferir": {
+      "post": {
+        "tags": ["Tranferir"],
+        "description": "Esse endpoint permite a transferência de recursos (dinheiro) de uma conta bancária para outra e registra essa transação.",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/transacoes/saldo": {
+      "get": {
+        "tags": ["Consultar saldo"],
+        "description": "Esse endpoint retorna o saldo de uma conta bancária.",
+        "parameters": [
+          {
+            "name": "numero_conta",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "senha",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/conta/extrato": {
+      "get": {
+        "tags": ["Extrato"],
+        "description": "Esse endpoint lista as transações realizadas de uma conta específica.",
+        "parameters": [
+          {
+            "name": "numero_conta",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "senha",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {}
+}

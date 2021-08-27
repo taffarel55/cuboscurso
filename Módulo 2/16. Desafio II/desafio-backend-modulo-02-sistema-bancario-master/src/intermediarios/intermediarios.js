@@ -6,10 +6,12 @@ function autenticar(req, res, next) {
     req.method === "GET" && req.url.split("/")[1] === "transacoes";
   const consultaExtrato =
     req.method === "GET" && req.url.split("/")[1] === "conta";
+  const swagger = req.method === "GET" && req.url.split("/")[1] === "docs";
   if (
     req.query.senha_banco === banco.senha ||
     consultaSaldo ||
-    consultaExtrato
+    consultaExtrato ||
+    swagger
   ) {
     next();
   } else {
@@ -19,9 +21,8 @@ function autenticar(req, res, next) {
 }
 
 function erros(err, req, res, next) {
-  if(!err) err = new Erro();
+  if (!err) err = new Erro();
   res.status(err.status).json({ erro: err.mensagem });
 }
 
-module.exports = {autenticar, erros};
- 
+module.exports = { autenticar, erros };
