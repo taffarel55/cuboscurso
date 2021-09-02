@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
+html,body {
+    background: #E5E5E5;
+    margin: 0px;
+    padding: 0px;
+}
+
+.card {
+    width: 335px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    padding: 85px;
+    margin: 123px auto;
+}
+
+img.quote {
+    width: 36px;
+}
+
+.card p.text {
+    font-family: 'Merriweather', serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 36px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #101439;
+    margin: 0 12px 38px 0;
+}
+
+.card p.sign {
+    font-family: 'Open Sans', serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 2px;
+    text-align: left;
+    color: #101439;
+    text-transform: uppercase;
+    margin: 0px 0px -20px 0px;
+}
+
+.newsletter {
+    border-radius: 10px;
+    padding: 60px;
+    background: #101439;
+    margin: 0 auto 100px auto;
+    width: 311px;
+    color: white;
+    text-align: left;
+}
+
+.newsletter h4 {
+    text-transform: uppercase;
+    font-family: Open Sans;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 2px;
+    margin: 0 0 10px 0;
+}
+
+.newsletter h5 {
+    font-family: Merriweather;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: 0em;
+    margin: 0 0 13px 0;
+}
+
+.newsletter p {
+    font-family: 'Open Sans', serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0em;
+    margin: 0 0 55px 0;
+}
+
+.newsletter a {
+    background: #FFFFFF;
+    color:#101439;
+    padding: 25px;
+    display: block;
+    width: 191px;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 10px;
+    font-family: Open Sans;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px;
+    letter-spacing: 0em;
+}

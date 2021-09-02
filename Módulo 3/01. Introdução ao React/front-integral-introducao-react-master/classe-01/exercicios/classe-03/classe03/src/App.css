@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #e5e5e5;
+}
+
+.card {
+  width: 536px;
+  background-color: white;
+  border-radius: 15px;
+  padding: 70px;
+  margin: 100px auto 100px auto;
+}
+
+.card h3 {
+  margin: 5px auto 20px auto;
+  font-family: Merriweather, serif;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: 0em;
+  margin: 5px auto 20px auto;
+}
+
+.card p.description {
+  font-family: Lato, serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 26px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin: 0px auto 20px auto;
+}
+
+.card p.time {
+  font-family: Lato;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 26px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #494949;
+  margin-bottom: 51px;
+}
+
+.card p.cat {
+  font-family: Lato;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 26px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #494949;
+  margin-bottom: 10px;
+}
+
+.card ul {
+  list-style-type: none;
+  margin: 0 0 32px 0;
+}
+
+.card ul li {
+  display: inline;
+}
+
+.card ul li a {
+  display: inline-block;
+  text-decoration: none;
+  padding: 9px 20px;
+  overflow: auto;
+  background: #eff5ff;
+  margin: 0 10px 10px 0;
+  border-radius: 45px;
+  color: #2e29ff;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+a.button {
+  display: block;
+  padding: 11px 32px;
+  background: #000;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  font-family: Lato;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 26px;
+  letter-spacing: 0em;
+  text-align: left;
+}
