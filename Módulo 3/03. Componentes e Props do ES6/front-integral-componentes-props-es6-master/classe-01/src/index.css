@@ -1,0 +1,92 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f5f5f5;
+}
+
+.App {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  position: relative;
+  background: white;
+  border-radius: 20px;
+  padding: 67px 52px 70px 52px;
+  width: 432px;
+}
+
+.card::after {
+  position: absolute;
+  content: url("assets/close.svg");
+  top: 30px;
+  right: 30px;
+  cursor: pointer;
+}
+
+.card > img {
+  display: block;
+  margin: 0 auto;
+}
+
+.card > p {
+  margin-top: 29px;
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+button {
+  all: unset;
+  box-sizing: border-box;
+  width: 50%;
+  display: block;
+  margin: 0 auto;
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: center;
+  border-radius: 5px;
+  padding: 14px;
+  cursor: pointer;
+  position: relative;
+}
+
+.card button::before {
+  content: "";
+  position: absolute;
+  background: inherit;
+  display: block;
+  width: 85%;
+  height: 19px;
+  bottom: 0px;
+  filter: blur(30px);
+  border-radius: 5px;
+}
+
+button.vermelho {
+  color: #ffffff;
+  background: #ed6755;
+}
+
+button.azul {
+  color: #ffffff;
+  background: #1c1b5e;
+}
