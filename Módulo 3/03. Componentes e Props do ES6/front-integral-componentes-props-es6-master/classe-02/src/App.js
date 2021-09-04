@@ -34,7 +34,7 @@ const contatos = [
   },
 ];
 
-function Card({img, user, nome, seguidores, seguindo}) {
+function Card({ img, user, nome, seguidores, seguindo }) {
   return (
     <div className="card">
       <img src={img} alt={user}></img>
@@ -49,8 +49,8 @@ function Card({img, user, nome, seguidores, seguindo}) {
 function App() {
   return (
     <div className="App">
-      {contatos.map(contato=>{
-        return <Card {...contato} key={contato.user}/>;
+      {contatos.map((contato) => {
+        return <Card {...contato} key={contato.user} />;
       })}
     </div>
   );
