@@ -1,0 +1,79 @@
+-- Obter número de linhas
+select count(*) as qtd from usuarios;
+
+-- Concatenar nome e email
+select nome || '-' || email as info from usuarios limit 3;
+select concat(nome, ' - ', email) as "nome email" from usuarios limit 3;
+
+-- Obter média das idades
+select avg(idade) from usuarios;
+
+-- Obter média das idades com 2 casas decimais
+select round(avg(idade),2) from usuarios;
+
+-- Obter idade mínima
+select idade from usuarios order by idade asc limit 1;
+select min(idade) from usuarios;
+
+-- Obter idade máxima
+select idade from usuarios order by idade desc limit 1;
+select max(idade) from usuarios;
+
+-- Obter cadastro minimo
+select min(cadastro) from usuarios;
+select max(cadastro) from usuarios;
+
+-- Obter nome por ordem alfabética
+select min(nome) from usuarios;
+select max(nome) from usuarios;
+
+-- Somar todas idades
+select sum(idade) from usuarios;
+
+-- Converter dados
+select '123'::int;
+select '12.3'::float;
+select '2019-11-19 14:31:39'::date;
+select '2019-11-19 14:31:39'::timestamp;
+
+-- Converter dados usando CAST
+select cast('123' as int);
+select cast(cadastro as timestamp) from usuarios limit 3;
+
+-- Função que retorna data de agora
+select now();
+select * from agenda where agendamento::date > now() limit 4;
+select * from agenda where cast(agendamento as date) > now() limit 4;
+
+-- Age();
+select age('2018-05-19','2017-04-15') as one;
+select age('2018-05-19 12:00:00','2017-04-15 10:00:00') as two;
+select age('2018-05-19 12:00:00'::date) as three;
+select *, age(cadastro::date) as prazo from usuarios limit 5;
+
+-- PRIMEIRO torne NULL manualmente algum parametro
+-- Antes;
+select id || ' - ' || 
+       nome || ' - ' || 
+       telefone 
+       as info
+from usuarios order by id limit 5;
+
+-- Com coalesce
+select id || ' - ' || 
+       nome || ' - ' || 
+       coalesce(telefone, 'Não possui')
+       as info
+from usuarios  order by id limit 5;
+
+-- Group by para obter quantidades de pessoas com idade 68
+select count(idade) as qtd from usuarios where idade = 68;
+select idade, count(*) as qtd from usuarios group by idade limit 5;
+select idade, count(*) as qtd from usuarios where idade=68 group by idade;
+
+-- Group by para agrupar por data
+select 
+    cast(cadastro as date),
+    count(*) 
+from usuarios group by cast(cadastro as date);
+
