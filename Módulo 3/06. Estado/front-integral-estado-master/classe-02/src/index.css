@@ -1,0 +1,86 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #456392;
+}
+
+.App {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.Card {
+  background: #ffffff;
+  padding: 23px 80px 39px 80px;
+  width: 302px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Card img {
+  border-radius: 50%;
+  border: 10px solid #ecf3fc;
+}
+
+.Card h1 {
+  font-family: Mulish;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 30px;
+  letter-spacing: 0em;
+  margin-top: 30px;
+  text-align: center;
+  width: max-content;
+}
+
+.Card h2 {
+  font-family: Mulish;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 23px;
+  letter-spacing: 0em;
+  text-align: center;
+  margin-top: 8px;
+  margin-bottom: 69px;
+}
+
+.Card p {
+  font-family: Mulish;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 23px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+.Card__button {
+  all: unset;
+  box-sizing: border-box;
+  margin-top: 18px;
+  display: block;
+  width: 100%;
+  background: #459275;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  color: white;
+  cursor: pointer;
+}
+
+.Card__button.followed {
+  background: #97ceb9 !important;
+}

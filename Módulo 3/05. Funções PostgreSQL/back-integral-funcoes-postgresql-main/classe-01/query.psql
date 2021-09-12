@@ -1,0 +1,99 @@
+-- 1
+select  count(medicamento) 
+    as medicamentos
+    from farmacia;
+
+-- 2
+select min(idade)
+    as idade_min
+    from usuarios;
+
+-- 3
+select max(idade)
+    as idade_max
+    from usuarios; 
+
+-- 4
+select round(avg(idade),2)
+    as idade_media
+    from usuarios
+    where idade>=18;
+
+-- 5
+select categoria, sum(estoque) as qtd
+    from farmacia
+    where categoria 
+    similar to 'black|blue'
+    group by categoria;
+
+-- 6
+select categoria, sum(estoque) as qtd
+    from farmacia
+    where categoria 
+    is not null
+    group by categoria;
+
+-- 7
+select medicamento, sum(estoque) as qtd
+    from farmacia
+    group by medicamento
+    limit 5;
+
+-- 8
+select medicamento, count(medicamento) as qtd_grupos
+    from farmacia
+    group by medicamento
+    limit 5;
+
+-- 9
+select medicamento ||' ('|| categoria ||')'
+    as medicamento_e_grupo
+    from farmacia
+    limit 5;
+
+-- 10
+select id || ' - ' ||
+    medicamento || ' - ' ||
+    coalesce(categoria, '(sem categoria)')
+    from farmacia
+    limit 5;
+
+-- 11
+select nome, idade, to_char(cadastro::date, 'yyyy-mm-dd')
+    as cadastro2020
+    from usuarios
+    where extract(year from cadastro::date) = 2020
+    limit 5;
+
+-- 12
+select nome, idade, email, 
+    age(now(), cadastro::date) as tempo
+    from usuarios
+    where idade<18
+    limit 5;
+
+-- 13
+select nome, idade, email, 
+    age(now(), cadastro::date) as tempo
+    from usuarios
+    where idade>=60
+    limit 5;
+
+-- 14
+select categoria, count(categoria) as produtos
+    from farmacia
+    group by categoria;
+
+-- 15
+select idade, count(idade)
+    from usuarios
+    where idade>=18
+    group by idade
+    order by idade asc
+    limit 5;
+
+-- 16
+select categoria, sum(estoque) as qtd
+    from farmacia
+    group by categoria
+    limit 3;
