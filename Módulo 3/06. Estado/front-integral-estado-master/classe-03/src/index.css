@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Mulish:200,300,regular,500,600,700,800,900,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+
 * {
   border: 0;
   padding: 0;
@@ -14,6 +16,11 @@ body {
   justify-content: center;
   align-items: center;
   gap: 10px;
+  flex-flow: row wrap;
+  -webkit-transition: all 0.5s 0s ease;
+  -moz-transition: all 0.5s 0s ease;
+  -o-transition: all 0.5s 0s ease;
+  transition: all 0.5s 0s ease;
 }
 
 .Card {
@@ -26,6 +33,7 @@ body {
 
 .Card img {
   border-radius: 12px 12px 0 0;
+  height: 211px;
 }
 
 .Card h1 {
@@ -53,7 +61,7 @@ body {
   margin-bottom: 34px;
 }
 
-.Card boxqtd {
+.Card .boxqtd {
   padding: 25px;
   display: flex;
   justify-content: space-between;
@@ -66,7 +74,7 @@ body {
   text-align: center;
 }
 
-.Card boxqtd .button {
+.Card .boxqtd .button {
   font-family: Mulish;
   font-size: 36px;
   font-style: normal;

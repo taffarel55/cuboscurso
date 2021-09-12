@@ -20,7 +20,7 @@ function Card(props) {
       <img src={card.img} alt="logo" />
       <h1>{card.name}</h1>
       <p>{card.desc}</p>
-      <boxqtd>
+      <div className="boxqtd">
         <div className="button" onClick={diminuir}>
           -
         </div>
@@ -28,7 +28,7 @@ function Card(props) {
         <div className="button" onClick={aumentar}>
           +
         </div>
-      </boxqtd>
+      </div>
     </div>
   );
 }
