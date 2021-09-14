@@ -1,0 +1,5 @@
+insert into produtos 
+(nome, descricao, valor, categoria, estoque) 
+values 
+('Camisa verde',null, 4990, 'Camisa', 23),
+('Camisa preta','Camisa de luxo mt linda', 14990, 'Camisa de luxo', 5);

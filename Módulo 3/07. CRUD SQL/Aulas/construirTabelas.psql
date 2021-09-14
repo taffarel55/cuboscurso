@@ -1,0 +1,12 @@
+drop table if exists produtos;
+
+create table produtos (
+    id serial,
+    nome varchar(60) not null,
+    descricao text, 
+    preco integer not null, 
+    categoria varchar(20) not null,
+    estoque integer not null, 
+    ativo boolean default true, 
+    data_cadastro timestamptz not null
+);

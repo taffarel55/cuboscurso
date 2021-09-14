@@ -1,0 +1,32 @@
+-- Alterar característica de uma coluna
+alter table produtos
+alter column data_cadastro
+set default now();
+
+-- Remover coluna
+alter table produtos
+drop column descricao;
+
+-- Adicionar coluna
+alter table produtos
+add column descricao text;
+
+-- Renomear coluna
+alter table produtos
+rename column preco to valor;
+
+-- Adicionar restrição de unico
+alter table produtos
+add unique(nome)
+
+-- Remover restrição de único
+alter table produtos
+drop constraint produtos_nome_key1
+
+-- Adicionar restrição de unico com nome
+alter table produtos
+add constraint nomeproduto unique(nome)
+
+-- Remover restrição de único com nome
+alter table produtos
+drop constraint nomeproduto

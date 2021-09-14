@@ -1,0 +1,3 @@
+update produtos set nome = 'Camisa Laranja' where id = 4;
+
+update produtos set ativo = false, categoria = 'Camisa', estoque=0 where id = 3;
