@@ -1,0 +1,30 @@
+-- Inserir postagens e comentários
+
+-- Primeiro vou criar postagens
+
+delete from comentarios;
+delete from postagens; -- deletando tudo 
+delete from usuarios; -- por causa dos unique
+
+
+insert into usuarios 
+values 
+    ('@GeraldinJr','Geraldinho', now()),
+    ('@taffarel55','Maurício Taffarel', now()),
+    ('@brenuamin','Breno Amin', now());
+
+insert into postagens values (
+    'ac23573e-171d-11ec-9621-0242ac130002', 
+    now(),
+    'Olá meus amigos @brenuamin e @GeraldinJr',
+    '@taffarel55'
+);
+
+insert into comentarios 
+values 
+    ('3f6c1912-171f-11ec-9621-0242ac130002', now(), null, 'E ai velho, bó estudar modelagem','@GeraldinJr', 'ac23573e-171d-11ec-9621-0242ac130002'),
+    ('72021200-171f-11ec-9621-0242ac130002', now(), null, 'Hoje não posso que vou ver ana','@brenuamin', 'ac23573e-171d-11ec-9621-0242ac130002');
+
+select * from usuarios;
+select * from postagens;
+select * from comentarios;

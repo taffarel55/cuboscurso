@@ -1,0 +1,32 @@
+-- 1 usuario : n postagens
+-- 1 usuario : n comentarios 
+-- 1 postagem : n comentario
+
+-- Criando tabela usuarios
+drop table if exists comentarios;
+drop table if exists postagens;
+drop table if exists usuarios;
+
+create table usuarios (
+    username text not null primary key,
+    nome text not null,
+    data_nascimento date
+);
+
+-- Criando tabela de postagens
+create table postagens (
+    id uuid not null primary key,
+    data_hora timestamp not null,
+    conteudo text not null,
+    autor text not null references usuarios(username)
+);
+
+-- Criando tabela de comentários
+create table comentarios (
+    id uuid not null primary key,
+    data_hora_criacao timestamp not null,
+    data_hora_edicao timestamp,
+    conteudo text not null,
+    autor text not null references usuarios(username),
+    id_postagem uuid not null references postagens(id)
+);

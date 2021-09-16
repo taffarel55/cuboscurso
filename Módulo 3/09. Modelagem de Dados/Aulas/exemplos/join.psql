@@ -1,0 +1,6 @@
+select 
+    id, name, abstract
+from movies 
+join movie_abstracts_en on movies.id = movie_abstracts_en.movie_id
+where 
+    name ilike 'star wars%'

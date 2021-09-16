@@ -1,0 +1,25 @@
+-- quais são os filmes que tiveram o maior numero de pessoas envolvidas?
+-- quais são as pessoas que tiveram envolvidas em mais filmes?
+
+select 
+    movies.name as nome_filme,
+    count(people.name) as pessoas
+from movies
+left join casts on movies.id = casts.movie_id
+left join people on casts.person_id = people.id
+where movies.kind = 'movie'
+group by movies.name
+order by count(people.name) desc
+limit 10;
+
+-- 
+select 
+    people.name, 
+    count(movies.name) as filmes
+from movies
+left join casts on movies.id = casts.movie_id
+left join people on casts.person_id = people.id
+where people.name is not null
+group by people.name
+order by count(movies.name) desc
+limit 10;

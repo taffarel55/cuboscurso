@@ -1,0 +1,7 @@
+select 
+    movies.id, movies.name, categories.name
+from movies 
+left join movie_categories on movies.id = movie_categories.movie_id
+left join categories on movie_categories.category_id = categories.id
+where 
+    categories.name ilike 'academy award winner'

@@ -1,0 +1,7 @@
+select 
+    id, name, movie_abstracts_en.abstract as english, movie_abstracts_es.abstract as spanish
+from movies 
+left join movie_abstracts_en on movies.id = movie_abstracts_en.movie_id
+left join movie_abstracts_es on movies.id = movie_abstracts_es.movie_id
+where 
+    name ilike 'star wars%'

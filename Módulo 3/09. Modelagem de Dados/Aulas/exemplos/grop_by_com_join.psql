@@ -1,0 +1,8 @@
+select 
+    categories.name, count(*)
+from movies 
+left join movie_categories on movies.id = movie_categories.movie_id
+left join categories on movie_categories.category_id = categories.id
+group by categories.name
+order by count(*) desc
+limit 10

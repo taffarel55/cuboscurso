@@ -1,0 +1,15 @@
+delete from postagens;
+delete from usuarios;
+
+insert into usuarios values (
+    '@guilherme',
+    'Guilherme',
+    null
+);
+
+insert into postagens values (
+    'ac23573e-171d-11ec-9621-0242ac130002', 
+    now(),
+    'Olá dia lindo!',
+    '@guilherme'
+);
