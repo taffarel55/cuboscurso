@@ -1,0 +1,45 @@
+drop table if exists pedidos;
+drop table if exists vendedores;
+drop table if exists clientes;
+drop table if exists produtos;
+drop table if exists categorias;
+drop table if exists itens_do_pedido;
+
+create table clientes (
+    cpf char(11) not null unique,
+    nome varchar(150) not null
+);
+
+
+create table vendedores (
+    cpf char(11) not null unique,
+    nome varchar(150) not null
+);
+
+create table pedidos (
+    id serial,
+    valor int not null,
+    cliente_cpf char(11) references clientes(cpf) not null,
+    vendedor_cpf char(11) references vendedores(cpf)
+);
+
+create table categorias (
+    id serial primary key,
+    nome varchar(50) not null
+);
+
+create table produtos (
+    id serial, 
+    nome varchar(100) not null,
+    descricao text not null,
+    preco int not null,
+    quantidade_em_estoque int not null,
+    categoria_id int references categorias(id)
+);
+
+create table itens_do_pedido (
+    id serial primary key,
+    pedido_id int not null,
+    quantidade int not null,
+    produto_id int not null
+);
