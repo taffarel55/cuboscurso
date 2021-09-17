@@ -1,0 +1,115 @@
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:100,200,300,regular,500,600,700,100italic,200italic,300italic,italic,500italic,600italic,700italic);
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: white url("assets/background.jpg") no-repeat center top;
+  display: flex;
+  justify-content: center;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+}
+
+.App input {
+  all: unset;
+  box-sizing: border-box;
+  margin-top: 40px;
+  margin-bottom: 24px;
+  font-family: Josefin Sans;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.25px;
+  text-align: left;
+  padding: 20px 24px;
+  background: white;
+  border-radius: 5px;
+  color: #393a4b;
+  width: 100%;
+}
+
+.App h1 {
+  font-family: "Josefin Sans", "Sans serif";
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: 15px;
+  text-align: left;
+  text-transform: uppercase;
+  color: white;
+  margin-top: 70px;
+}
+
+.App ul {
+  box-shadow: 0px 35px 50px -15px #c2c3d680;
+  border-radius: 5px;
+  background: white;
+}
+
+.App li {
+  list-style: none;
+  padding: 20px 24px;
+  font-family: Josefin Sans;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.25px;
+  text-align: left;
+  color: #494c6b;
+  border-bottom: 1px solid #e3e4f1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.App li div {
+  cursor: pointer;
+}
+
+.App li .done {
+  text-decoration: line-through;
+  color: #d1d2da;
+}
+
+.App li .btn-close {
+  padding: 8.84px;
+  background: url("assets/delete.svg");
+}
+
+.App li.opcoes {
+  padding-top: 16px;
+  font-family: Josefin Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: -0.1944444477558136px;
+  color: #9495a5;
+  gap: 20px;
+  border-bottom: none;
+}
+
+.App li.opcoes .filtro {
+  display: flex;
+  font-weight: 700;
+  gap: 9px;
+}
+
+.App li.opcoes .filtro div:hover {
+  color: #494C6B;
+}
+
+.App li.opcoes .filtro .ativo {
+  color: #3a7cfd !important;
+}
