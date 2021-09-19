@@ -56,12 +56,7 @@
   text-align: left;
 }
 
-.CardItem {
-  display: flex;
-  align-items: center;
-}
-
-.CardItem__text {
+.MenuItem__text {
   margin-left: 5px;
   margin-right: 25px;
   font-family: Roboto;
@@ -97,6 +92,12 @@
   flex-basis: 0;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.MenuItem {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 
 .Menu img {
