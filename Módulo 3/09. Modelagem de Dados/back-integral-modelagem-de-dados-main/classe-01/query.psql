@@ -1,0 +1,371 @@
+-- 0. Criação das tabelas
+drop table if exists itens_do_pedido;
+drop table if exists pedidos;
+drop table if exists vendedores;
+drop table if exists clientes;
+drop table if exists produtos;
+drop table if exists categorias;
+
+create table clientes (
+    cpf char(11) not null unique,
+    nome varchar(150) not null
+);
+
+
+create table vendedores (
+    cpf char(11) unique,
+    nome varchar(150) not null
+);
+
+create table pedidos (
+    id serial primary key,
+    valor int not null,
+    cliente_cpf char(11) references clientes(cpf) not null,
+    vendedor_cpf char(11) references vendedores(cpf)
+);
+
+create table categorias (
+    id serial primary key,
+    nome varchar(50) not null unique
+);
+
+create table produtos (
+    id serial primary key, 
+    nome varchar(100) not null,
+    descricao text not null,
+    preco int not null,
+    quantidade_em_estoque int not null,
+    categoria_id int references categorias(id) not null
+);
+
+create table itens_do_pedido (
+    id serial primary key,
+    pedido_id int references pedidos(id) not null,
+    quantidade int not null,
+    produto_id int references produtos(id) not null 
+);
+
+-- 1. Alimentar a tabela categorias com as seguintes informações.
+
+insert into categorias (nome)
+values 
+    ('frutas'),
+    ('verduras'),
+    ('massas'),
+    ('bebidas'),
+    ('utilidades');
+
+select * from categorias;
+
+-- 2. Alimentar a tabela produtos
+
+INSERT INTO produtos ( nome , descricao , preco , quantidade_em_estoque , categoria_id )
+VALUES
+    ('Mamão', 'Rico em vitamina A, potássio e vitamina C', '300', '123', 1),
+    ('Maça', 'Fonte de potássio e fibras.', '90', '34', 1),
+    ('Cebola', 'Rico em quercetina, antocianinas, vitaminas do complexo B, C.', '50', '76', 2),
+    ('Abacate', 'NÃO CONTÉM GLÚTEN.', '150', '64', 1),
+    ('Tomate', 'Rico em vitaminas A, B e C.', '125', '88', 2),
+    ('Acelga', 'NÃO CONTÉM GLÚTEN.', '235', '13', 2),
+    ('Macarrão parafuso', 'Sêmola de trigo enriquecida com ferro e ácido fólico, ovos e corantes naturais', '690', '5', 3),
+    ('Massa para lasanha', 'Uma reunião de família precisa ter comida boa e muita alegria.', '875', '19', 3),
+    ('Refrigerante coca cola lata', 'Sabor original', '350', '189', 4),
+    ('Refrigerante Pepsi 2l', 'NÃO CONTÉM GLÚTEN. NÃO ALCOÓLICO.', '700', '12', 4),
+    ('Cerveja Heineken 600ml', 'Heineken é uma cerveja lager Puro Malte, refrescante e de cor amarelo-dourado', '1200', '500', 4),
+    ('Agua mineral sem gás', 'Smartwater é água adicionado de sais mineirais (cálcio, potássio e magnésio) livre de sódio e com pH neutro.', '130', '478', 4),
+    ('Vassoura', 'Pigmento, matéria sintética e metal.', '2350', '30', 5),
+    ('Saco para lixo', 'Reforçado para garantir mais segurança', '1340', '90', 5),
+    ('Escova dental', 'Faça uma limpeza profunda com a tecnologia inovadora', '1000', '44', 5),
+    ('Balde para lixo 50l', 'Possui tampa e fabricado com material reciclado', '2290', '55', 5),
+    ('Manga', 'Rico em Vitamina A, potássio e vitamina C', '198', '176', 1),
+    ('Uva', 'NÃO CONTÉM GLÚTEN.', '420', '90', 1);
+
+select * from produtos;
+
+-- 3. Alimentar a tabela clientes
+
+INSERT INTO clientes ( cpf , nome )
+VALUES
+    ('80371350042', 'José Augusto Silva'),
+    ('67642869061', 'Antonio Oliveira'),
+    ('63193310034', 'Ana Rodrigues'),
+    ('75670505018', 'Maria da Conceição');
+
+select * from clientes;
+
+-- 4. Alimentar a tabela vendedores
+INSERT INTO vendedores ( cpf , nome )
+VALUES
+    ('82539841031', 'Rodrigo Sampaio'),
+    ('23262546003', 'Beatriz Souza Santos'),
+    ('28007155023', 'Carlos Eduardo');
+
+select * from vendedores;
+
+-- 5. Vendas
+
+-- a
+select 'Antes da venda' as mensagem;
+
+-- Criação do pedido
+DO $$
+DECLARE pedidoID integer;
+BEGIN
+    INSERT INTO pedidos (valor, cliente_cpf, vendedor_cpf) 
+        VALUES (0, '80371350042', '28007155023') 
+        RETURNING id INTO pedidoID;
+    INSERT INTO itens_do_pedido(pedido_id, quantidade, produto_id) 
+        values 
+            (pedidoID,1,1),
+            (pedidoID,1,10),
+            (pedidoID,6,11),
+            (pedidoID,1,15),
+            (pedidoID,5,2);
+    UPDATE produtos SET quantidade_em_estoque = quantidade_em_estoque - 1 WHERE id = 1;
+    update pedidos p set valor = valor+1*s.preco from produtos s, itens_do_pedido i
+    where s.id = 1 and p.id = pedidoID;
+    UPDATE produtos SET quantidade_em_estoque = quantidade_em_estoque - 1 WHERE id = 10;
+    update pedidos p set valor = valor+1*s.preco from produtos s, itens_do_pedido i
+    where s.id = 10 and p.id = pedidoID;
+    UPDATE produtos SET quantidade_em_estoque = quantidade_em_estoque - 6 WHERE id = 11;
+    update pedidos p set valor = valor+6*s.preco from produtos s, itens_do_pedido i
+    where s.id = 11 and p.id = pedidoID;
+    UPDATE produtos SET quantidade_em_estoque = quantidade_em_estoque - 1 WHERE id = 15;
+    update pedidos p set valor = valor+1*s.preco from produtos s, itens_do_pedido i
+    where s.id = 15 and p.id = pedidoID;
+    UPDATE produtos SET quantidade_em_estoque = quantidade_em_estoque - 5 WHERE id = 2;
+    update pedidos p set valor = valor+5*s.preco from produtos s, itens_do_pedido i
+    where s.id = 2 and p.id = pedidoID;
+END $$;
+
+-- select 'Depois da venda' as mensagem;
+-- select * from pedidos;
+-- select * from itens_do_pedido;
+-- select * from produtos;
+
+-- b
+DO $$
+DECLARE pedidoID integer;
+BEGIN
+    INSERT INTO pedidos (valor, cliente_cpf, vendedor_cpf) 
+        VALUES (0, '63193310034', '23262546003') 
+        RETURNING id INTO pedidoID;
+    INSERT INTO itens_do_pedido(pedido_id, quantidade, produto_id) 
+        values 
+            (pedidoID,10,17),
+            (pedidoID,3,18),
+            (pedidoID,5,1),
+            (pedidoID,10,5),
+            (pedidoID,2,6);
+    UPDATE produtos SET quantidade_em_estoque = quantidade_em_estoque - 10 WHERE id = 17;
+    UPDATE produtos SET quantidade_em_estoque = quantidade_em_estoque - 3 WHERE id = 18;
+    UPDATE produtos SET quantidade_em_estoque = quantidade_em_estoque - 5 WHERE id = 1;
+    UPDATE produtos SET quantidade_em_estoque = quantidade_em_estoque - 10 WHERE id = 5;
+    UPDATE produtos SET quantidade_em_estoque = quantidade_em_estoque - 2 WHERE id = 6;
+    
+    update pedidos p 
+        set valor = valor+10*s.preco 
+        from produtos s, itens_do_pedido i 
+        where s.id = 17 and p.id = pedidoID;
+
+    update pedidos p 
+        set valor = valor+3*s.preco 
+        from produtos s, itens_do_pedido i 
+        where s.id = 18 and p.id = pedidoID;
+
+    update pedidos p 
+        set valor = valor+5*s.preco 
+        from produtos s, itens_do_pedido i 
+        where s.id = 1 and p.id = pedidoID;
+
+    update pedidos p 
+        set valor = valor+10*s.preco 
+        from produtos s, itens_do_pedido i 
+        where s.id = 5 and p.id = pedidoID;
+
+    update pedidos p 
+        set valor = valor+2*s.preco 
+        from produtos s, itens_do_pedido i 
+        where s.id = 6 and p.id = pedidoID;
+END $$;
+-- select 'Depois da venda' as mensagem;
+-- select * from pedidos;
+-- select * from itens_do_pedido;
+-- select * from produtos;
+
+-- c
+DO $$
+DECLARE pedidoID integer;
+BEGIN
+    INSERT INTO pedidos (valor, cliente_cpf, vendedor_cpf) 
+        VALUES (0, '75670505018', '23262546003') 
+        RETURNING id INTO pedidoID;
+    INSERT INTO itens_do_pedido(pedido_id, quantidade, produto_id) 
+        values 
+            (pedidoID,1,13),
+            (pedidoID,6,12),
+            (pedidoID,5,17);
+    UPDATE produtos SET quantidade_em_estoque = quantidade_em_estoque - 1 WHERE id = 13;
+    UPDATE produtos SET quantidade_em_estoque = quantidade_em_estoque - 6 WHERE id = 12;
+    UPDATE produtos SET quantidade_em_estoque = quantidade_em_estoque - 5 WHERE id = 17;
+    update pedidos p 
+        set valor = valor+1*s.preco 
+        from produtos s, itens_do_pedido i 
+        where s.id = 13 and p.id = pedidoID;
+    update pedidos p 
+        set valor = valor+6*s.preco 
+        from produtos s, itens_do_pedido i 
+        where s.id = 12 and p.id = pedidoID;
+    update pedidos p 
+        set valor = valor+5*s.preco 
+        from produtos s, itens_do_pedido i 
+        where s.id = 17 and p.id = pedidoID;
+END $$;
+-- select 'Depois da venda' as mensagem;
+-- select * from pedidos;
+-- select * from itens_do_pedido;
+-- select * from produtos;
+
+-- d
+DO $$
+DECLARE pedidoID integer;
+BEGIN
+    INSERT INTO pedidos (valor, cliente_cpf, vendedor_cpf) 
+        VALUES (0, '75670505018', '82539841031') 
+        RETURNING id INTO pedidoID;
+    INSERT INTO itens_do_pedido(pedido_id, quantidade, produto_id) 
+        values 
+            (pedidoID,1,16),
+            (pedidoID,6,18),
+            (pedidoID,1,7),
+            (pedidoID,3,1),
+            (pedidoID,20,5),
+            (pedidoID,2,6);
+    UPDATE produtos SET quantidade_em_estoque = quantidade_em_estoque - 1 WHERE id = 16;
+    UPDATE produtos SET quantidade_em_estoque = quantidade_em_estoque - 6 WHERE id = 18;
+    UPDATE produtos SET quantidade_em_estoque = quantidade_em_estoque - 1 WHERE id = 7;
+    UPDATE produtos SET quantidade_em_estoque = quantidade_em_estoque - 3 WHERE id = 1;
+    UPDATE produtos SET quantidade_em_estoque = quantidade_em_estoque - 20 WHERE id = 5;
+    UPDATE produtos SET quantidade_em_estoque = quantidade_em_estoque - 2 WHERE id = 6;
+
+    update pedidos p 
+        set valor = valor+1*s.preco 
+        from produtos s, itens_do_pedido i 
+        where s.id = 16 and p.id = pedidoID;
+
+    update pedidos p 
+        set valor = valor+6*s.preco 
+        from produtos s, itens_do_pedido i 
+        where s.id = 18 and p.id = pedidoID;
+
+    update pedidos p 
+        set valor = valor+1*s.preco 
+        from produtos s, itens_do_pedido i 
+        where s.id = 7 and p.id = pedidoID;
+
+    update pedidos p 
+        set valor = valor+3*s.preco 
+        from produtos s, itens_do_pedido i 
+        where s.id = 1 and p.id = pedidoID;
+
+    update pedidos p 
+        set valor = valor+20*s.preco 
+        from produtos s, itens_do_pedido i 
+        where s.id = 5 and p.id = pedidoID;
+
+    update pedidos p 
+        set valor = valor+2*s.preco 
+        from produtos s, itens_do_pedido i 
+        where s.id = 6 and p.id = pedidoID;
+END $$;
+-- select 'Depois da venda' as mensagem;
+-- select * from pedidos;
+-- select * from itens_do_pedido;
+-- select * from produtos;
+
+-- e
+DO $$
+DECLARE pedidoID integer;
+BEGIN
+    INSERT INTO pedidos (valor, cliente_cpf, vendedor_cpf) 
+        VALUES (0, '67642869061', '82539841031') 
+        RETURNING id INTO pedidoID;
+    INSERT INTO itens_do_pedido(pedido_id, quantidade, produto_id) 
+        values 
+            (pedidoID,8,18),
+            (pedidoID,1,8),
+            (pedidoID,3,17),
+            (pedidoID,8,5),
+            (pedidoID,2,11);
+    UPDATE produtos SET quantidade_em_estoque = quantidade_em_estoque - 8 WHERE id = 18;
+    UPDATE produtos SET quantidade_em_estoque = quantidade_em_estoque - 1 WHERE id = 8;
+    UPDATE produtos SET quantidade_em_estoque = quantidade_em_estoque - 3 WHERE id = 17;
+    UPDATE produtos SET quantidade_em_estoque = quantidade_em_estoque - 8 WHERE id = 5;
+    UPDATE produtos SET quantidade_em_estoque = quantidade_em_estoque - 2 WHERE id = 11;
+
+    update pedidos p 
+        set valor = valor+8*s.preco 
+        from produtos s, itens_do_pedido i 
+        where s.id = 18 and p.id = pedidoID;
+
+    update pedidos p 
+        set valor = valor+1*s.preco 
+        from produtos s, itens_do_pedido i 
+        where s.id = 8 and p.id = pedidoID;
+
+    update pedidos p 
+        set valor = valor+3*s.preco 
+        from produtos s, itens_do_pedido i 
+        where s.id = 17 and p.id = pedidoID;
+
+    update pedidos p 
+        set valor = valor+8*s.preco 
+        from produtos s, itens_do_pedido i 
+        where s.id = 5 and p.id = pedidoID;
+
+    update pedidos p 
+        set valor = valor+2*s.preco 
+        from produtos s, itens_do_pedido i 
+        where s.id = 11 and p.id = pedidoID;
+END $$;
+select 'Depois da venda' as mensagem;
+select * from pedidos;
+select * from itens_do_pedido;
+select * from produtos;
+
+-- 6
+-- a
+select 
+    produtos.nome, categorias.nome
+from 
+    produtos
+inner join categorias 
+    on categorias.id = produtos.categoria_id;
+
+-- b
+select 
+    p.id, clientes.nome, vendedores.nome
+from 
+    pedidos p
+inner join clientes 
+    on clientes.cpf = p.cliente_cpf
+inner join vendedores 
+    on vendedores.cpf = p.vendedor_cpf;
+
+-- c
+select 
+    categorias.nome, sum(quantidade_em_estoque)
+from 
+    produtos
+inner join categorias
+    on categorias.id = produtos.categoria_id
+group by categorias.nome;
+
+-- d
+select 
+    p.nome, sum(i.quantidade) as vendidos
+from 
+    itens_do_pedido i
+inner join produtos p
+    on p.id = i.produto_id
+group by p.nome;
