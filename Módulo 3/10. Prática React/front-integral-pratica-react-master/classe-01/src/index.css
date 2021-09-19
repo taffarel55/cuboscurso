@@ -1,0 +1,151 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic);
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  display: flex;
+  position: relative;
+}
+
+.Gallery {
+  margin: 100px 20px;
+}
+
+.Gallery__imgs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px 30px;
+  justify-content: center;
+}
+
+.Gallery h1 {
+  font-family: Roboto;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 42px;
+  letter-spacing: 0em;
+  text-align: center;
+  margin: 0px auto 50px auto;
+}
+
+.Card {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.Card img {
+  cursor: pointer;
+}
+
+.Card__desc {
+  display: flex;
+  justify-content: space-between;
+  font-family: Roboto;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 23px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.CardItem {
+  display: flex;
+  align-items: center;
+}
+
+.CardItem__text {
+  margin-left: 5px;
+  margin-right: 25px;
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #888888;
+  cursor: pointer;
+}
+
+.Card picture.liked::after {
+  content: url("assets/like.svg");
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 1;
+}
+
+.desc__title {
+  color: #000;
+}
+
+.desc__time {
+  color: #5c5c5c;
+}
+
+.Menu {
+  background: #313131;
+  display: flex;
+  flex-basis: 0;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.Menu img {
+  margin: 20px;
+  cursor: pointer;
+}
+
+.Menu__bottom {
+  position: sticky;
+  bottom: 0;
+}
+
+.hidden {
+  margin: 0;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.active {
+  color: #ffffff;
+}
+
+.Modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #00000099;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+}
+
+.Modal img {
+  width: 40vw;
+}
+
+.Modal::after {
+  position: absolute;
+  background-image: url("assets/close-modal.svg");
+  background-size: 34px 34px;
+  display: inline-block;
+  width: 34px;
+  height: 34px;
+  content: "";
+  top: 90px;
+  right: 45px;
+  cursor: pointer;
+}
