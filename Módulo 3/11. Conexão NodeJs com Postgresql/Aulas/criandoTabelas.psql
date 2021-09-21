@@ -1,0 +1,19 @@
+drop table if exists livros;
+
+drop table if exists autores;
+
+create table autores (
+    id serial primary key,
+    nome text not null,
+    idade smallint
+);
+
+create table livros (
+    id serial primary key,
+    autor_id integer not null,
+    nome text not null,
+    editora varchar(100),
+    genero varchar(50) not null,
+    data_publicacao date,
+    foreign key (autor_id) references autores(id)
+);
