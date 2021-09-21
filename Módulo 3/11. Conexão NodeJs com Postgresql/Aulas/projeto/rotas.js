@@ -12,10 +12,10 @@ rotas.put("/autores/:id", autores.atualizarAutor);
 rotas.delete("/autores/:id", autores.deletarAutor);
 
 // livros
-// rotas.get("/livros", livros.listarLivro);
-// rotas.get("/livros/:id", livros.obterLivro);
-// rotas.post("/livros", livros.cadastrarLivro);
-// rotas.put("/livros", livros.atualizarLivro);
-// rotas.delete("/livros/:id", livros.deletarLivro);
+rotas.get("/livros", livros.listarLivros);
+rotas.get("/livros/:id", livros.obterLivro);
+rotas.post("/livros", livros.cadastrarLivro);
+rotas.put("/livros/:id", livros.atualizarLivro);
+rotas.delete("/livros/:id", livros.deletarLivro);
 
 module.exports = rotas;

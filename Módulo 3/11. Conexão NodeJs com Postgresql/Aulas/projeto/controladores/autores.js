@@ -5,6 +5,14 @@ const listarAutores = async (req, res) => {
     const { rows: autores } = await conexao.query(
       "select * from autores order by id asc"
     );
+
+    for (const autor of autores) {
+      const { rows: livros } = await conexao.query(
+        "select * from livros where autor_id = $1",
+        [autor.id]
+      );
+      autor.livros = livros;
+    }
     return res.status(200).json(autores);
   } catch (error) {
     return res.status(400).json(error.message);
@@ -78,9 +86,7 @@ const deletarAutor = async (req, res) => {
     const autorExcluido = await conexao.query(query, [id]);
 
     if (autorExcluido.rowCount === 0)
-      return res
-        .status(404)
-        .json({ erro: "Não foi possível excluir o autor" });
+      return res.status(404).json({ erro: "Não foi possível excluir o autor" });
 
     return res.status(200).json({ mensagem: "Autor excluido com sucesso" });
   } catch (error) {
