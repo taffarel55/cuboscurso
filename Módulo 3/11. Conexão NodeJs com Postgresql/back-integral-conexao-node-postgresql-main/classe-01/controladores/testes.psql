@@ -1,0 +1,9 @@
+select 
+    e.id, 
+    u.nome as usuario, 
+    u.telefone,
+    u.email, 
+    l.nome, 
+    e. status from emprestimos e 
+left join usuarios u on e.usuario_id = u.id
+left join livros l on e.livro_id = l.id

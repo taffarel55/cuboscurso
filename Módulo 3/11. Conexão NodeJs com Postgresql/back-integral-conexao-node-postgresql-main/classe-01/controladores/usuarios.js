@@ -3,12 +3,17 @@ const conexao = require("../conexao");
 const listarUsuarios = async (req, res) => {
   try {
     const query = "select * from usuarios";
-    // const query = `
-    //         select l.id, a.nome as nome_autor, l.nome, l.genero, l.editora, l.data_publicacao from livros l
-    //         left join autores a on l.autor_id = a.id
-    //     `;
     const { rows: usuarios } = await conexao.query(query);
-    return res.status(200).json(usuarios);
+
+    const query2 = "select * from emprestimos";
+    const {rows:emprestimos} = await conexao.query(query2);
+
+    const novosUsuarios = usuarios.map((u)=>{
+      const emp = emprestimos.filter(e=>e.usuario_id==u.id);
+      return {...u,emprestimos:emp};
+    });
+
+    return res.status(200).json(novosUsuarios);
   } catch (error) {
     return res.status(400).json(error.message);
   }
@@ -26,7 +31,12 @@ const obterUsuario = async (req, res) => {
       return res.status(404).json("Usuário não encontrado.");
     }
 
-    return res.status(200).json(usuario.rows[0]);
+    const query2 = "select * from emprestimos";
+    const { rows: emprestimos } = await conexao.query(query2);
+
+    const emp = emprestimos.filter((e) => e.usuario_id == usuario.rows[0].id);
+
+    return res.status(200).json({...usuario.rows[0], emprestimos: emp});
   } catch (error) {
     return res.status(400).json(error.message);
   }
@@ -80,7 +90,7 @@ const atualizarUsuario = async (req, res) => {
       return res.status(404).json("Usuário não encontrado.");
     }
 
-    const query = `update livros set 
+    const query = `update usuarios set 
         nome = $1,
         idade = $2,
         email = $3,
@@ -98,16 +108,51 @@ const atualizarUsuario = async (req, res) => {
     ]);
 
     if (livroAtualizado.rowCount === 0) {
-      return res.status(400).json("Não foi possível atualizar o livro");
+      return res.status(400).json("Não foi possível atualizar o usuário");
     }
 
-    return res.status(200).json("O livro foi atualizado com sucesso");
+    return res.status(200).json("O usuário foi atualizado com sucesso");
   } catch (error) {
     return res.status(400).json(error.message);
   }
 };
 
-const excluirUsuario = async (req, res) => {};
+const excluirUsuario = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const usuario = await conexao.query(
+      "select * from usuarios where id = $1",
+      [id]
+    );
+
+    if (usuario.rowCount === 0) {
+      return res.status(404).json("Usuário não encontrado.");
+    }
+
+    const query2 = `
+            select * from emprestimos
+            where usuario_id=$1
+        `;
+    const emprestimos = await conexao.query(query2, [id]);
+
+    if (emprestimos.rowCount !== 0) {
+      return res
+        .status(400)
+        .json("Usuário não pode ser excluído, há empréstimos associados com o usuário");
+    }
+
+    const query = "delete from usuarios where id = $1";
+    const usuarioExcluido = await conexao.query(query, [id]);
+
+    if (usuarioExcluido.rowCount === 0) {
+      return res.status(400).json("Não foi possível excluir o usuario");
+    }
+
+    return res.status(200).json("O usuario foi excluido com sucesso.");
+  } catch (error) {
+    return res.status(400).json(error.message);
+  }
+};
 
 module.exports = {
   listarUsuarios,
