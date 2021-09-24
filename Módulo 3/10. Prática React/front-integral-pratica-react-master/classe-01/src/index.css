@@ -70,11 +70,23 @@
   cursor: pointer;
 }
 
+.image__area {
+  position: relative;
+}
+
 .Card picture.liked::after {
   content: url("assets/like.svg");
   position: absolute;
   top: 18px;
   right: 18px;
+  z-index: 1;
+}
+
+.Modal picture.liked::after {
+  content: url("assets/like.svg");
+  position: absolute;
+  top: 20px;
+  right: 20px;
   z-index: 1;
 }
 

@@ -23,15 +23,18 @@ function App() {
   );
 
   function clickImage(event) {
+    const novosPosts = posts.map((p) => p);
+    const p = novosPosts.find((post) => post.id === parseInt(event.target.alt));
     setModal(() => ({
       display: true,
       src: event.target.src,
       alt: event.target.alt,
+      liked: p.liked,
     }));
   }
 
   function closeModal(event) {
-    setModal(() => ({ display: false, src: null, alt: null }));
+    setModal(() => ({ display: false, src: null, alt: null, liked: false }));
   }
 
   function like(event) {
@@ -39,6 +42,7 @@ function App() {
     const p = novosPosts.find((post) => post.id === parseInt(event.target.alt));
     if (p) p.liked = p.liked ? false : true;
     setPosts(novosPosts);
+    setModal({ ...modal, liked: p.liked });
   }
 
   return (
@@ -66,6 +70,7 @@ function App() {
         handleClick={closeModal}
         action={like}
         alt={modal.alt}
+        state={modal.liked}
       ></Modal>
     </div>
   );
