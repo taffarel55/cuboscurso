@@ -1,0 +1,10 @@
+drop table if exists usuarios;
+
+create table usuarios(
+    id serial,
+    nome text not null,
+    idade smallint,
+    email text not null unique,
+    telefone text,
+    cpf text not null unique
+);
