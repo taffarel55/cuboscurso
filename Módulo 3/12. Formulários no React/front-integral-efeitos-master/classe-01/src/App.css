@@ -1,0 +1,96 @@
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:300,300italic,regular,italic,500,500italic,700,700italic);
+
+* {
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1b1b1b;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Ubuntu", sans-serif;
+  color: white;
+}
+
+h1 {
+  margin: 20px;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: "Ubuntu", sans-serif;
+  height: 20vh;
+}
+
+input {
+  height: 53px;
+  padding: 10px;
+}
+
+button {
+  position: relative;
+  border: 0;
+  padding: 15px 25px;
+  display: inline-block;
+  text-align: center;
+  color: white;
+  background-color: #fa5a5a;
+  box-shadow: 0px 4px #e04342;
+}
+
+button:active {
+  top: 4px;
+  box-shadow: 0 0 #ff4c4b;
+  background-color: #ff4c4b;
+}
+
+.carregando {
+    text-align: center;
+}
+
+.paises {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin: 0 50px;
+}
+
+.pais {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  gap: 15px;
+  color: #333;
+  box-shadow: 0 0 10px rgba(100, 100, 100, 0.3);
+}
+
+.pais img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.pais__name {
+  font-size: 1.5em;
+}
+
+.pais__regiao {
+  font-size: 0.9em;
+}
+
+.pais__moeda {
+  font-size: 0.7em;
+}
