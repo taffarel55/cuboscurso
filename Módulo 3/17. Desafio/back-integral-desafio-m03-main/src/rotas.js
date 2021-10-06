@@ -11,5 +11,7 @@ rotas.put("/usuario", usuarios.atualizarUsuario);
 rotas.get("/produtos", produtos.listarProdutos);
 rotas.get("/produtos/:id", produtos.obterProduto);
 rotas.post("/produtos", produtos.cadastrar);
+rotas.put("/produtos/:id", produtos.atualizar);
+rotas.delete("/produtos/:id", produtos.deletar);
 
 module.exports = rotas;
