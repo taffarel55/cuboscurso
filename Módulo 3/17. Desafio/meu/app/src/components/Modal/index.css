@@ -1,0 +1,155 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #3d3d3d7a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.modal-container {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 30px;
+}
+
+.modal-items {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.modal-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.modal-title-text {
+  font-family: Rubik;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 43px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.close-icon img {
+  width: 26px;
+  transform: rotate(-45deg);
+  cursor: pointer;
+}
+
+.modal-buttons {
+  display: flex;
+}
+
+.modal-buttons > div {
+  flex-grow: 1;
+  justify-self: stretch;
+}
+
+.modal-buttons label {
+  font-family: Rubik;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 17px;
+  letter-spacing: 0em;
+  color: #ffffff;
+  background: #b9b9b9;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+#in:checked ~ label {
+  background: linear-gradient(91.26deg, #05ede3 0%, #3a9ff1 97.77%);
+}
+
+#out:checked ~ label {
+  background: linear-gradient(91.66deg, #fa8c10 0%, #ff576b 90.32%);
+}
+
+#credit-button label {
+  border-radius: 10px 0px 0px 10px;
+}
+
+#debit-button label {
+  border-radius: 0px 10px 10px 0px;
+}
+
+.modal-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal-input-div {
+  display: flex;
+  flex-direction: column;
+  gap:2px;
+}
+
+.modal-input-div label {
+  font-family: Rubik;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #484848;
+}
+
+.modal-input-div input, .modal-input-div select {
+  all: unset;
+  box-sizing: border-box;
+  border: 1px solid #555555;
+  border-radius: 5px;
+  font-family: Rubik;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0px;
+  text-align: left;
+  padding: 10px;
+}
+
+/* .modal-buttons input[type="radio"] {
+  display: none;
+} */
+
+
+.btn-insert {
+  all: unset;
+  box-sizing: border-box;
+  font-family: Rubik;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: center;
+  width: 50%;
+  height: 38px;
+  background: #6460fb;
+  color: #ffffff;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  align-self: center;
+  margin-top: 20px;
+}
