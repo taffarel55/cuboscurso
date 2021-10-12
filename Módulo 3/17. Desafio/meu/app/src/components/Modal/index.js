@@ -21,7 +21,8 @@ function Modal({ modal, setModal, load, regEditar }) {
       "Sábado",
       "Domingo",
     ];
-    const date = new Date(formulario.date);
+    const date = new Date(+new Date(formulario.date) + 1000 * 60 * 60 * 3);
+    console.log(date);
     const week_day = days[date.getDay()];
     const body = {
       date,

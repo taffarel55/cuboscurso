@@ -98,12 +98,22 @@ function Table({ lista, load }) {
   const [ordenacao, setOrdenacao] = useState({ tipo: "date", asc: true });
   const [listaOrdenada, setListaOrdenada] = useState([]);
 
-  useEffect(() => {
-    const asc = ordenacao.asc ? 1 : -1;
+  function handleOrdenar(tipo) {
+    if (ordenacao.tipo === tipo) {
+      setOrdenacao({ ...ordenacao, asc: !ordenacao.asc });
+      console.log("Mudei a ordenação");
+      return;
+    }
+    setOrdenacao({ tipo, asc: true });
+    console.log("Setei uma nova ordenação");
+  }
 
+  useEffect(()=>{
+    const asc = ordenacao.asc ? 1 : -1;
+    console.log("Vou ordenar");
     if (ordenacao.tipo === "date") {
       setListaOrdenada(
-        lista.sort((a, b) => asc * (new Date(b.date) - new Date(a.date)))
+        lista.sort((a, b) => asc * (new Date(a.date) - new Date(b.date)))
       );
     }
 
@@ -114,11 +124,11 @@ function Table({ lista, load }) {
     if (ordenacao.tipo === "value") {
       setListaOrdenada(lista.sort((a, b) => asc * (a.value - b.value)));
     }
-  }, [ordenacao, lista]);
+  },[lista, ordenacao.asc, ordenacao.tipo])
 
   return (
     <div className="table">
-      <TableHead ordenacao={ordenacao} setOrdenacao={setOrdenacao} />
+      <TableHead ordenacao={ordenacao} handleOrdenar={handleOrdenar} />
       <div className="table-body">
         {listaOrdenada.map((item, index) => (
           <TableLine
@@ -140,15 +150,7 @@ function Table({ lista, load }) {
   );
 }
 
-function TableHead({ ordenacao, setOrdenacao }) {
-  function handleOrdenar(tipo) {
-    if (ordenacao.tipo === tipo) {
-      setOrdenacao({ ...ordenacao, asc: !ordenacao.asc });
-      return;
-    }
-    setOrdenacao({ tipo, asc: true });
-  }
-
+function TableHead({ ordenacao, handleOrdenar }) {
   return (
     <div className="table-head">
       <span

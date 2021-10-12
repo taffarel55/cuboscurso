@@ -1,31 +1,3 @@
 {
-  "transactions": [
-    {
-      "date": "2021-10-13T00:00:00.000Z",
-      "week_day": "Quarta",
-      "description": "Larica",
-      "value": 12000,
-      "category": "Alimentação",
-      "type": "debit",
-      "id": 1
-    },
-    {
-      "date": "2021-10-13T00:00:00.000Z",
-      "week_day": "Quarta",
-      "description": "Aulas",
-      "value": 10000,
-      "category": "Pix",
-      "type": "credit",
-      "id": 2
-    },
-    {
-      "date": "2021-09-27T00:00:00.000Z",
-      "week_day": "Segunda",
-      "description": "Teste",
-      "value": 10000,
-      "category": "Depósito",
-      "type": "credit",
-      "id": 3
-    }
-  ]
+  "transactions": []
 }
