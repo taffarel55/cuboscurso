@@ -153,3 +153,22 @@
   align-self: center;
   margin-top: 20px;
 }
+
+@media (max-width: 500px) {
+  .modal-container {
+    padding: 20px;
+  }
+  .modal-title-text {
+    font-size: 20px;
+  }
+  .modal-input-div label {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 320px) {
+  .modal-title {
+    gap: 3px;
+    width: 250px;
+  }
+}

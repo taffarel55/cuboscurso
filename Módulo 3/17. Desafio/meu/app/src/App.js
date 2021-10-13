@@ -48,7 +48,7 @@ function App() {
 
   const loadTransactions = async () => {
     try {
-      const response = await fetch("http://localhost:3334/transactions", {
+      const response = await fetch("https://dindin-api.herokuapp.com/transactions", {
         method: "GET",
       });
 
@@ -79,7 +79,7 @@ function App() {
 
         <div className="main">
           <div className="details">
-            <div className={filterState ? "" : "hide"}>
+            <div className={`filter-box ${filterState ? "" : "hide"}`}>
               <Filter
                 key={"filter"}
                 filtro={filtro}

@@ -111,7 +111,22 @@ header {
 
 @media (max-width: 500px) {
   .AppBody {
-    padding: 55px 15px;
+    padding: 55px 10px;
+    margin-top: -50px;
+  }
+
+  .logo {
+    margin: 20px auto 60px 15px;
+  }
+
+  .container-resume {
+    flex-grow: 1;
+  }
+}
+
+@media (max-width: 320px) {
+  .AppBody {
+    padding: 55px 5px;
     margin-top: -50px;
   }
 

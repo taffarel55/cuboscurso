@@ -18,7 +18,7 @@ function Tooltip({ id, load }) {
 
   async function handleDelete(id) {
     try {
-      await fetch("http://localhost:3334/transactions/" + id, {
+      await fetch("https://dindin-api.herokuapp.com/transactions/" + id, {
         method: "DELETE",
       });
       await load();
@@ -64,7 +64,7 @@ function TableLine({ reg, load, setModal, setRegEditar }) {
         {new Date(date).toLocaleDateString("pt-br")}
       </span>
       <span className="line-items">{week_day}</span>
-      <span className="line-items">{description}</span>
+      <span className="line-items">{description || "-"}</span>
       <span className="line-items">{category}</span>
       <span
         className={`line-items ${

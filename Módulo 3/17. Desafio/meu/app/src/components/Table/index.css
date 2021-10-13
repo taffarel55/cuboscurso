@@ -223,4 +223,16 @@
     padding: 3px;
     gap: 0px;
   }
+  .icons img {
+    width: 15px;
+  }
+  .column-title:nth-of-type(2), .line-items:nth-child(2) {
+    display: none;
+  }
+}
+
+@media (max-width: 320px) {
+  .table {
+    text-overflow: ellipsis
+  }
 }

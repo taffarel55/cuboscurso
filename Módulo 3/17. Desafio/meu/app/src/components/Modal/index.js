@@ -47,7 +47,7 @@ function Modal({ modal, setModal, load, regEditar }) {
     };
 
     try {
-      await fetch("http://localhost:3334/transactions/" + id, {
+      await fetch("https://dindin-api.herokuapp.com/transactions/" + id, {
         method: regEditar ? "PUT" : "POST",
         headers: {
           "Content-Type": "application/json",
