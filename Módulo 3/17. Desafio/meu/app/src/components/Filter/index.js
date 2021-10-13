@@ -10,7 +10,14 @@ function toggle(collection, item) {
   }
 }
 
-function Filter({ filtro, setFiltro, lista, setListaFiltrada, categorias }) {
+function Filter({
+  filtro,
+  setFiltro,
+  lista,
+  setListaFiltrada,
+  categorias,
+  diasSemana,
+}) {
   function handleChange({ target: t }) {
     if (t.type === "checkbox") {
       const array = filtro[t.name];
@@ -50,15 +57,7 @@ function Filter({ filtro, setFiltro, lista, setListaFiltrada, categorias }) {
       <div className="container-filters-div">
         <div className="container-filters-title">Dia da Semana</div>
         <div className="container-filters-group">
-          {[
-            "Segunda",
-            "Terça",
-            "Quarta",
-            "Quinta",
-            "Sexta",
-            "Sábado",
-            "Domingo",
-          ].map((item, index) => {
+          {diasSemana.map((item, index) => {
             return (
               <label
                 key={index}
@@ -98,7 +97,7 @@ function Filter({ filtro, setFiltro, lista, setListaFiltrada, categorias }) {
                   value={item}
                   onChange={handleChange}
                 />
-                {item}
+                <div className="text-filter">{item}</div>
                 <div className="icon-filter">
                   <img src={plus} alt="" />
                 </div>

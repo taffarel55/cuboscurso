@@ -22,6 +22,10 @@
   color: #000000;
 }
 
+.table-head img {
+  margin-left: 2px;
+}
+
 .column-title {
   flex: 1;
   cursor: pointer;
@@ -73,8 +77,9 @@
 
 .icons {
   display: flex;
-  justify-content: center;
-  gap: 12px;
+  justify-content: flex-end;
+  gap: 6px;
+  margin-right: 12px;
 }
 
 .icons > img {
@@ -204,7 +209,6 @@
     gap: 5px;
   }
   .icons {
-    justify-content: flex-end;
     gap: 0px;
   }
 }

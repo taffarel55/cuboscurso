@@ -56,7 +56,7 @@
   justify-self: stretch;
 }
 
-.modal-buttons label {
+.modal-buttons label div {
   font-family: Rubik;
   font-size: 14px;
   font-style: normal;
@@ -72,19 +72,19 @@
   cursor: pointer;
 }
 
-#in:checked ~ label {
+#credit-button input:checked ~ div {
   background: linear-gradient(91.26deg, #05ede3 0%, #3a9ff1 97.77%);
 }
 
-#out:checked ~ label {
+#debit-button input:checked ~ div  {
   background: linear-gradient(91.66deg, #fa8c10 0%, #ff576b 90.32%);
 }
 
-#credit-button label {
+#credit-button label div {
   border-radius: 10px 0px 0px 10px;
 }
 
-#debit-button label {
+#debit-button label div {
   border-radius: 0px 10px 10px 0px;
 }
 
@@ -126,9 +126,9 @@
   padding: 10px;
 }
 
-/* .modal-buttons input[type="radio"] {
+.modal-buttons input[type="radio"] {
   display: none;
-} */
+}
 
 
 .btn-insert {

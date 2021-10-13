@@ -16,6 +16,7 @@ function App() {
   const [modal, setModal] = useState(false);
   const [transacoes, setTransacoes] = useState({});
   const [categorias, setCategorias] = useState([]);
+  const [diasSemana, setDiasSemana] = useState([]);
   const [filterState, setFilterState] = useState(false);
   const [filtro, setFiltro] = useState({
     semana: [],
@@ -29,20 +30,20 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const cat = [...new Set(lista.map((l)=>l.category))].filter(e => e);
-    setCategorias(cat);
+    setCategorias([...new Set(lista.map((l) => l.category))].filter((e) => e));
+    setDiasSemana([...new Set(lista.map((l) => l.week_day))].filter((e) => e));
   }, [lista]);
 
   useEffect(() => {
     const inp = listaFiltrada.reduce((acc, item) => {
-      if (item.type==="credit") return acc+item.value/100;
-      else return acc;
-    },0);
-    const out = listaFiltrada.reduce((acc, item) => {
-      if (item.type === "debit") return acc + item.value/100;
+      if (item.type === "credit") return acc + item.value / 100;
       else return acc;
     }, 0);
-    setTransacoes({inp, out});
+    const out = listaFiltrada.reduce((acc, item) => {
+      if (item.type === "debit") return acc + item.value / 100;
+      else return acc;
+    }, 0);
+    setTransacoes({ inp, out });
   }, [listaFiltrada]);
 
   const loadTransactions = async () => {
@@ -86,6 +87,7 @@ function App() {
                 lista={lista}
                 setListaFiltrada={setListaFiltrada}
                 categorias={categorias}
+                diasSemana={diasSemana}
               />
             </div>
             <Table
@@ -102,7 +104,12 @@ function App() {
           </div>
         </div>
       </div>
-      <Modal modal={modal} setModal={setModal} load={loadTransactions} />
+      <Modal
+        modal={modal}
+        setModal={setModal}
+        load={loadTransactions}
+        regEditar={false}
+      />
     </div>
   );
 }

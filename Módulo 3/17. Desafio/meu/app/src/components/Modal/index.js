@@ -1,66 +1,83 @@
 import "./index.css";
 import plus from "./imgs/plus.svg";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 function Modal({ modal, setModal, load, regEditar }) {
-  const [formulario, setFormulario] = useState({
-    date: "",
-    description: "",
-    type: "debit",
-    value: "",
-  }); 
+  const [popup, setPopup] = useState(false);
+
+  const [state, setState] = useState("debit");
+  const [id, setID] = useState("");
+  const descricao = useRef(null);
+  const data = useRef(null);
+  const categoria = useRef(null);
+  const valor = useRef(null);
+
+  useEffect(() => {
+    if (regEditar) {
+      descricao.current.value = regEditar.description;
+      data.current.value = regEditar.date.toString().split("T")[0];
+      categoria.current.value = "Pix";
+      valor.current.value = (regEditar.value / 100)
+        .toFixed(2)
+        .replace(".", ",");
+      setState(() => regEditar.type);
+      setID(() => regEditar.id);
+    }
+  }, [regEditar]);
 
   async function handleSubmit(e) {
     e.preventDefault();
-    var days = [
-      "Segunda",
-      "Terça",
-      "Quarta",
-      "Quinta",
-      "Sexta",
-      "Sábado",
-      "Domingo",
-    ];
-    const date = new Date(+new Date(formulario.date) + 1000 * 60 * 60 * 3);
-    console.log(date);
-    const week_day = days[date.getDay()];
+    const formulario = e.target.elements;
+
+    const date = new Date(
+      +new Date(formulario.date.value) + 1000 * 60 * 60 * 3
+    );
+
+    const week_day = date
+      .toLocaleDateString("pt-br", { weekday: "long" })
+      .split("-")[0];
+
     const body = {
       date,
       week_day,
-      description: formulario.description,
-      value: formulario.value * 100,
-      category: formulario.category,
-      type: formulario.type,
+      description: formulario.description.value,
+      value: formulario.value.value * 100,
+      category: formulario.category.value,
+      type: state,
     };
+
     try {
-      await fetch("http://localhost:3334/transactions", {
-        method: "POST",
+      await fetch("http://localhost:3334/transactions/" + id, {
+        method: regEditar ? "PUT" : "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(body),
       });
-      setFormulario({
-        ...formulario,
-        date: "",
-        description: "",
-        type: "",
-        value: "debit",
-      });
+      if (!regEditar) {
+        setState("debit");
+        descricao.current.value = "";
+        data.current.value = "dd-mm-aaaa";
+        categoria.current.value = "";
+        valor.current.value = "";
+        setModal(false);
+      }
+
+      setPopup(`${regEditar?"Editado":"Adicionado"} com sucesso`);
+      setTimeout(() => {
+        setPopup(false);
+      }, 3000);
+
       await load();
     } catch (err) {
       console.log(err);
     }
   }
 
-  function handleChange({ target: t }) {
-    setFormulario({ ...formulario, [t.name]: t.value });
-  }
-
   return (
     <div className={`backdrop ${modal ? "" : "hide"}`}>
       <div className="modal-container">
-        <form className="teste" onSubmit={handleSubmit}>
+        <form className="form" onSubmit={handleSubmit}>
           <div className="modal-items">
             <div className="modal-title">
               <div className="modal-title-text">
@@ -73,25 +90,28 @@ function Modal({ modal, setModal, load, regEditar }) {
 
             <div className="modal-buttons">
               <div id="credit-button">
-                <input
-                  id="in"
-                  type="radio"
-                  name="type"
-                  value="credit"
-                  onChange={handleChange}
-                ></input>
-                <label htmlFor="in">Entrada</label>
+                <label>
+                  <input
+                    type="radio"
+                    name="type"
+                    value="credit"
+                    onChange={(e) => setState(e.target.value)}
+                    checked={state === "credit"}
+                  />
+                  <div>Entrada</div>
+                </label>
               </div>
               <div id="debit-button">
-                <input
-                  id="out"
-                  type="radio"
-                  name="type"
-                  value="debit"
-                  onChange={handleChange}
-                  required
-                ></input>
-                <label htmlFor="out">Saída</label>
+                <label>
+                  <input
+                    type="radio"
+                    name="type"
+                    value="debit"
+                    onChange={(e) => setState(e.target.value)}
+                    checked={state === "debit"}
+                  />
+                  <div>Saída</div>
+                </label>
               </div>
             </div>
 
@@ -100,20 +120,20 @@ function Modal({ modal, setModal, load, regEditar }) {
                 <label htmlFor="value">Valor</label>
                 <input
                   type="number"
-                  onChange={handleChange}
                   name="value"
                   id="value"
-                  value={formulario.value}
+                  ref={valor}
+                  step=".01"
                   required
                 />
               </div>
               <div className="modal-input-div">
                 <label htmlFor="category">Categoria</label>
                 <select
-                  onChange={handleChange}
                   name="category"
                   id="category"
                   defaultValue=""
+                  ref={categoria}
                 >
                   <option value="" disabled>
                     Selecionar
@@ -128,23 +148,21 @@ function Modal({ modal, setModal, load, regEditar }) {
                 </select>
               </div>
               <div className="modal-input-div">
-                <label htmlFor="date">Data</label>
+                <label htmlFor="dateModal">Data</label>
                 <input
                   type="date"
-                  onChange={handleChange}
                   name="date"
-                  id="date"
-                  value={formulario.date}
+                  id="dateModal"
+                  ref={data}
                   required
                 ></input>
               </div>
               <div className="modal-input-div">
                 <label htmlFor="description">Descrição</label>
                 <input
-                  onChange={handleChange}
                   name="description"
                   id="description"
-                  value={formulario.description}
+                  ref={descricao}
                 ></input>
               </div>
               <button type="submit" className="btn-insert">
@@ -154,6 +172,7 @@ function Modal({ modal, setModal, load, regEditar }) {
           </div>
         </form>
       </div>
+      {popup && <div className="popup">{popup}</div>}
     </div>
   );
 }

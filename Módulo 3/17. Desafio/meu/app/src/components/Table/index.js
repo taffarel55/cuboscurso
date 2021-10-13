@@ -53,10 +53,9 @@ function Tooltip({ id, load }) {
 
 function TableLine({ reg, load, setModal, setRegEditar }) {
   const { date, week_day, description, category, value, type, id } = reg;
-
-  function handleEdit(date, week_day, description, category, type) {
+  function handleEdit(date, week_day, description, category, type, value, id) {
     setModal(true);
-    setRegEditar({ date, week_day, description, category, type });
+    setRegEditar({ date, week_day, description, category, type, value, id });
   }
 
   return (
@@ -82,7 +81,7 @@ function TableLine({ reg, load, setModal, setRegEditar }) {
             src={edit}
             alt=""
             onClick={() =>
-              handleEdit(date, week_day, description, category, type)
+              handleEdit(date, week_day, description, category, type, value, id)
             }
           />
           <Tooltip load={load} key={id} id={id} />
@@ -92,39 +91,55 @@ function TableLine({ reg, load, setModal, setRegEditar }) {
   );
 }
 
-function Table({ lista, load }) {
+function Table({ lista, load, setPopup }) {
   const [modal, setModal] = useState(false);
   const [regEditar, setRegEditar] = useState();
-  const [ordenacao, setOrdenacao] = useState({ tipo: "date", asc: true });
+  const [ordenacao, setOrdenacao] = useState({ tipo: undefined, asc: true });
   const [listaOrdenada, setListaOrdenada] = useState([]);
 
   function handleOrdenar(tipo) {
+    let ord;
     if (ordenacao.tipo === tipo) {
-      setOrdenacao({ ...ordenacao, asc: !ordenacao.asc });
-      console.log("Mudei a ordenação");
-      return;
+      ord = { ...ordenacao, asc: !ordenacao.asc };
+    } else {
+      ord = { tipo, asc: true };
     }
-    setOrdenacao({ tipo, asc: true });
-    console.log("Setei uma nova ordenação");
-  }
 
-  useEffect(()=>{
-    const asc = ordenacao.asc ? 1 : -1;
-    console.log("Vou ordenar");
-    if (ordenacao.tipo === "date") {
+    const asc = ord.asc ? 1 : -1;
+    if (ord.tipo === "date") {
       setListaOrdenada(
         lista.sort((a, b) => asc * (new Date(a.date) - new Date(b.date)))
       );
     }
 
-    if (ordenacao.tipo === "week_day") {
-      setListaOrdenada(lista.sort((a, b) => asc * (a.week_day - b.week_day)));
+    if (ord.tipo === "week_day") {
+      setListaOrdenada(
+        lista.sort(
+          (a, b) =>
+            asc * (new Date(a.date).getDay() - new Date(b.date).getDay())
+        )
+      );
     }
 
-    if (ordenacao.tipo === "value") {
-      setListaOrdenada(lista.sort((a, b) => asc * (a.value - b.value)));
+    if (ord.tipo === "value") {
+      setListaOrdenada(
+        lista.sort((a, b) => {
+          return (
+            asc *
+            ((a.type === "debit" ? -1 : 1) * a.value -
+              (b.type === "debit" ? -1 : 1) * b.value)
+          );
+        })
+      );
     }
-  },[lista, ordenacao.asc, ordenacao.tipo])
+
+    setOrdenacao(ord);
+  }
+
+  useEffect(() => {
+    setListaOrdenada(lista);
+    setOrdenacao({ tipo: undefined, asc: true });
+  }, [lista]);
 
   return (
     <div className="table">

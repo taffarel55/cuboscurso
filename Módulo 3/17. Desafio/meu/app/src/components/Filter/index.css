@@ -26,6 +26,10 @@
   gap: 12px;
 }
 
+.container-filters-div {
+  flex-grow: 1;
+}
+
 .container-filters-div:nth-of-type(-n + 2) .container-filters-group {
   border-right: 1px solid #eaeaea;
 }
@@ -50,6 +54,10 @@
 .container-chip.active {
   background: #7b61ff;
   color: #ffffff;
+}
+
+.text-filter:first-letter {
+  text-transform: uppercase;
 }
 
 .container-chip img {

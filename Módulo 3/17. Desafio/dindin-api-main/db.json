@@ -1,3 +1,31 @@
 {
-  "transactions": []
+  "transactions": [
+    {
+      "date": "2021-10-12T03:00:00.000Z",
+      "week_day": "terça",
+      "description": "Bolsa IC",
+      "value": 40000,
+      "category": "Depósito",
+      "type": "credit",
+      "id": 1
+    },
+    {
+      "date": "2021-10-11T03:00:00.000Z",
+      "week_day": "segunda",
+      "description": "Enviei Pix",
+      "value": 11000,
+      "category": "Pix",
+      "type": "debit",
+      "id": 2
+    },
+    {
+      "date": "2021-10-10T03:00:00.000Z",
+      "week_day": "domingo",
+      "description": "Fulano",
+      "value": 5000,
+      "category": "TED",
+      "type": "debit",
+      "id": 3
+    }
+  ]
 }
