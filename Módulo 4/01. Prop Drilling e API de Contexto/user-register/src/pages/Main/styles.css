@@ -1,0 +1,17 @@
+main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.items-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: calc(100vh - 58px);
+}
+
+.left {
+  background: blueviolet;
+}
