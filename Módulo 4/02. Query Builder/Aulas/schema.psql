@@ -1,0 +1,133 @@
+-- create database knexjs
+
+drop table if exists agenda;
+
+create table agenda (
+    id serial primary key,
+    nome text not null, 
+    email text,
+    telefone text
+);
+
+-- INSERT INTO agenda (id,nome,email,telefone)
+-- VALUES
+--   (1,'Scarlet Parrish','augue.ut@donec.net','1-174-337-5774'),
+--   (2,'Briar Dunlap','ut.nulla@neceleifend.com','1-233-189-7147'),
+--   (3,'Evelyn Leblanc','ipsum.curabitur@duisami.edu','(811) 268-6787'),
+--   (4,'Nathan Sims','auctor@elitpharetra.ca','1-257-537-6525'),
+--   (5,'Grady Blackburn','quis.urna.nunc@adlitora.com','1-355-493-9372'),
+--   (6,'Christopher Ingram','porttitor.eros.nec@loremegetmollis.net','(721) 457-3701'),
+--   (7,'Jamal Clemons','libero.mauris@mollisnon.edu','(678) 265-1244'),
+--   (8,'Doris Adams','primis.in@duinecurna.org','(958) 746-4752'),
+--   (9,'Clio Underwood','orci.in.consequat@ultricesvivamus.edu','(236) 383-1848'),
+--   (10,'Cole Johnson','urna@inconsectetuer.com','(787) 861-1884');
+-- INSERT INTO agenda (id,nome,email,telefone)
+-- VALUES
+--   (11,'Britanney Ray','purus@dictummiac.com','1-358-485-4832'),
+--   (12,'Denton Villarreal','eu.tellus@faucibus.ca','(779) 510-6071'),
+--   (13,'Micah Montgomery','dignissim.maecenas.ornare@et.edu','(381) 657-4279'),
+--   (14,'Louis Flores','netus.et.malesuada@magnaloremipsum.org','1-492-215-1474'),
+--   (15,'Myles Franco','ullamcorper.magna.sed@nislmaecenasmalesuada.co.uk','1-698-467-2614'),
+--   (16,'Levi Cantrell','a.neque@maurissuspendisse.co.uk','1-227-160-1653'),
+--   (17,'Amena Cline','leo.vivamus@nisinibh.edu','(817) 649-2457'),
+--   (18,'Rae Gutierrez','hendrerit@telluseuaugue.edu','1-267-352-7575'),
+--   (19,'Hilel Franks','aliquam@proinsed.edu','(393) 492-7968'),
+--   (20,'Vielka Thompson','a.dui.cras@et.ca','1-354-848-5775');
+-- INSERT INTO agenda (id,nome,email,telefone)
+-- VALUES
+--   (21,'Keaton Payne','luctus.ipsum.leo@pellentesque.edu','1-543-597-0452'),
+--   (22,'Quon Frazier','tincidunt.aliquam@vitae.com','1-525-669-7361'),
+--   (23,'Stephen Pitts','non.quam.pellentesque@dui.net','(615) 235-1504'),
+--   (24,'August Warren','nonummy@velit.com','(293) 104-7764'),
+--   (25,'Iola Snider','tellus.non@molestiepharetranibh.org','1-168-868-5072'),
+--   (26,'Audrey Graves','tristique.aliquet@tellussuspendisse.ca','1-691-486-7193'),
+--   (27,'Lesley Hart','mauris.integer@ut.com','1-438-752-6447'),
+--   (28,'Kessie Vargas','nulla.facilisis@nisicum.org','(670) 265-5257'),
+--   (29,'Nasim Johnston','luctus.ut.pellentesque@maurisnullainteger.co.uk','1-508-636-2812'),
+--   (30,'Tyrone Nolan','cras.convallis@sem.edu','(657) 543-9216');
+-- INSERT INTO agenda (id,nome,email,telefone)
+-- VALUES
+--   (31,'Donovan Stanton','aenean.euismod@suscipitestac.net','(326) 125-6646'),
+--   (32,'Aquila Huber','aliquam.enim.nec@maurissuspendissealiquet.ca','(315) 415-4761'),
+--   (33,'Sheila Goodwin','pharetra.nam.ac@pellentesquehabitant.org','1-621-441-5412'),
+--   (34,'Melodie Cherry','nibh.quisque@acarcununc.com','(445) 116-5322'),
+--   (35,'Joshua Leblanc','dolor.nulla@tempuseu.com','1-278-688-3625'),
+--   (36,'Rafael Burke','in.molestie.tortor@liberodonec.com','(259) 882-7228'),
+--   (37,'Wynne Wells','nunc.est@iaculislacus.com','(552) 227-4397'),
+--   (38,'Hadley Baldwin','eget.dictum@temporarcu.net','(786) 748-4548'),
+--   (39,'Lara Maddox','lobortis.nisi.nibh@ipsumsuspendissesagittis.net','1-153-566-4705'),
+--   (40,'Aimee Huber','non.massa@mi.edu','(471) 398-1577');
+-- INSERT INTO agenda (id,nome,email,telefone)
+-- VALUES
+--   (41,'Elvis Mcbride','orci@duis.edu','(811) 206-8868'),
+--   (42,'Travis Ford','quam.quis@sociis.edu','1-836-676-0294'),
+--   (43,'Noelani Hyde','donec.at@interdum.com','(239) 858-3621'),
+--   (44,'Steven Haley','vel.lectus.cum@phasellusfermentum.com','(937) 217-5487'),
+--   (45,'James Armstrong','leo.in@volutpat.com','(927) 883-6505'),
+--   (46,'Finn Irwin','ut.ipsum.ac@pellentesquehabitantmorbi.org','1-361-478-3006'),
+--   (47,'Liberty Gates','tortor.nibh@fringillaeuismod.net','(578) 718-2230'),
+--   (48,'Catherine Murray','arcu.vivamus@utipsumac.co.uk','1-792-548-3724'),
+--   (49,'Lionel Byrd','nunc.mauris.elit@nonhendrerit.co.uk','1-835-638-4750'),
+--   (50,'Paula Rios','mauris.integer@sedet.org','(728) 457-0741');
+-- INSERT INTO agenda (id,nome,email,telefone)
+-- VALUES
+--   (51,'Kyla Steele','parturient.montes@turpisaliquam.co.uk','1-716-786-0730'),
+--   (52,'Lacota Gross','pede.ac.urna@antemaecenas.edu','1-599-618-2717'),
+--   (53,'Kennan Turner','ultrices.a@posuereat.edu','(579) 947-4269'),
+--   (54,'Jordan Kirby','ac.feugiat@dui.org','1-263-315-9715'),
+--   (55,'Ori Horn','arcu.aliquam.ultrices@erosnonenim.org','(553) 575-3378'),
+--   (56,'Linda Beck','praesent.eu@tinciduntdui.co.uk','1-574-514-2477'),
+--   (57,'Sybil Collier','convallis.erat@mattisvelit.com','(525) 266-2312'),
+--   (58,'Yoshi Blackburn','tellus.non@adipiscingmauris.ca','1-698-632-5758'),
+--   (59,'Elvis Shaffer','egestas.ligula@ametornarelectus.org','(623) 587-4393'),
+--   (60,'Hiram Vazquez','enim@mauris.net','1-333-735-6581');
+-- INSERT INTO agenda (id,nome,email,telefone)
+-- VALUES
+--   (61,'Ava Underwood','sociis@eratnonummy.ca','1-746-350-5196'),
+--   (62,'Gary Decker','sed.diam@nisl.ca','1-553-821-5487'),
+--   (63,'Rosalyn Davenport','imperdiet.nec@lectus.edu','(257) 837-2526'),
+--   (64,'Courtney Sharp','sagittis.placerat@facilisis.net','1-259-790-2532'),
+--   (65,'Cameron Lucas','at.velit.cras@nonquampellentesque.org','1-817-835-3368'),
+--   (66,'Heidi Valentine','tellus.lorem.eu@ac.org','(317) 786-9732'),
+--   (67,'Wilma Sullivan','velit.eu@facilisiseget.ca','(542) 452-0518'),
+--   (68,'Simone Ruiz','dolor.nonummy@inhendrerit.co.uk','(639) 205-3782'),
+--   (69,'Graiden Kerr','aliquet@dignissimlacus.com','(328) 208-2072'),
+--   (70,'Oren Holman','libero@eudui.net','1-315-452-5631');
+-- INSERT INTO agenda (id,nome,email,telefone)
+-- VALUES
+--   (71,'Jasper Fuentes','nullam.suscipit.est@sodalespurus.edu','(251) 812-9116'),
+--   (72,'Jakeem Small','ultrices.mauris@nequemorbi.net','(683) 597-0271'),
+--   (73,'Britanney Webster','inceptos.hymenaeos@non.org','1-815-719-9052'),
+--   (74,'Maile Waters','vitae.aliquet.nec@facilisisvitae.net','(283) 803-3142'),
+--   (75,'Noah Gutierrez','fames.ac.turpis@eratvolutpat.co.uk','(650) 774-5854'),
+--   (76,'Conan Maxwell','dolor.quisque.tincidunt@tellusloremeu.ca','(153) 624-1334'),
+--   (77,'Madeson Jarvis','fusce.aliquet@duinec.edu','1-642-114-6592'),
+--   (78,'Amir Houston','mi@hendreritid.net','(593) 508-6891'),
+--   (79,'Sierra Cook','erat.vitae@lacusquisque.co.uk','1-647-472-4366'),
+--   (80,'Hermione Villarreal','egestas@dictumproin.edu','1-114-475-6888');
+-- INSERT INTO agenda (id,nome,email,telefone)
+-- VALUES
+--   (81,'Nayda Preston','sed.diam@porttitor.com','1-326-308-3862'),
+--   (82,'Lucian Curtis','lobortis@malesuadaid.edu','1-877-448-7327'),
+--   (83,'Arden Gross','eu@semeget.org','1-167-552-6853'),
+--   (84,'Clementine Moss','sed@condimentum.co.uk','(141) 317-9587'),
+--   (85,'Kylynn Mccarthy','aliquam.adipiscing@sedcongueelit.edu','1-573-984-2812'),
+--   (86,'Lane Heath','lacus.varius.et@nullaaliquet.net','1-360-964-6483'),
+--   (87,'April Velazquez','aenean.gravida@magna.edu','(593) 544-8418'),
+--   (88,'Clayton Mcgowan','nec.eleifend@libero.net','(324) 588-8736'),
+--   (89,'Kyla Frost','sociis.natoque.penatibus@magna.edu','1-673-948-7746'),
+--   (90,'Elliott Hendricks','molestie.arcu@duis.org','1-278-977-2790');
+-- INSERT INTO agenda (id,nome,email,telefone)
+-- VALUES
+--   (91,'Robert Le','lorem@crasdictum.ca','1-586-818-2247'),
+--   (92,'Driscoll Patel','magna.phasellus@purusmaurisa.com','(263) 467-9132'),
+--   (93,'Deirdre Tucker','eget.magna.suspendisse@sedmolestiesed.com','1-858-472-2296'),
+--   (94,'Jillian Riddle','mauris.ut.quam@velquam.edu','(608) 941-6558'),
+--   (95,'Savannah Bowen','pede.blandit.congue@vitae.co.uk','(322) 734-4945'),
+--   (96,'Vanna Cross','sed@inhendrerit.co.uk','(234) 332-3571'),
+--   (97,'Olivia Flowers','odio.etiam.ligula@sociisnatoque.co.uk','(353) 769-8559'),
+--   (98,'Xavier Farmer','posuere.enim@et.org','(207) 229-0664'),
+--   (99,'Hayes Trujillo','eget.ipsum.suspendisse@tellusnunclectus.ca','(129) 682-1626'),
+--   (100,'Stella Bruce','ligula.aliquam@aliquetproin.co.uk','1-991-293-1655');
+
+select * from agenda;
