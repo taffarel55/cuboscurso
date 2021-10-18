@@ -131,3 +131,14 @@ create table agenda (
 --   (100,'Stella Bruce','ligula.aliquam@aliquetproin.co.uk','1-991-293-1655');
 
 select * from agenda;
+
+drop table if exists anotacoes;
+
+create table anotacoes (
+    id serial primary key,
+    agenda_id integer not null,
+    nota text,
+    foreign key (agenda_id) references agenda(id)
+);
+
+select * from anotacoes;

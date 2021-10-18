@@ -53,4 +53,39 @@ app.delete("/:id", async (req, res) => {
   return res.json(agendaDeletada);
 });
 
+app.post("/:id/anotacoes", async (req, res) => {
+  const { id } = req.params;
+  const { nota } = req.body;
+
+  try {
+    const anotacao = await knex("anotacoes")
+      .insert({
+        agenda_id: id,
+        nota: nota,
+      })
+      .debug()
+      .returning("*");
+
+    return res.status(200).json("ok");
+  } catch (err) {
+    return res.status(500).json(err.message);
+  }
+});
+
+app.get("/anotacoes", async (req, res) => {
+  const anotacoes = await knex("anotacoes")
+    .join("agenda", "anotacoes.agenda_id", "agenda.id")
+    .debug();
+
+  // const anotacoes = await knex("anotacoes")
+  //   .leftJoin("agenda", "anotacoes.agenda_id", "agenda.id")
+  //   .debug();
+
+  // const anotacoes = await knex("anotacoes")
+  //   .rightJoin("agenda", "anotacoes.agenda_id", "agenda.id")
+  //   .debug();
+
+  return res.json(anotacoes);
+});
+
 app.listen(port, () => console.log(`Servidor iniciado na porta ${port}`));
