@@ -41,10 +41,7 @@ function App() {
   }
 
   async function handleFindPokemon() {
-    const result = cacheSearch.find(
-      (item) =>
-        item.name.toLocaleLowerCase() === searchPokemon.toLocaleLowerCase()
-    );
+    const result = cacheSearch.find((item) => item.name === searchPokemon);
     if (result) {
       return setPokemon(result);
     }
