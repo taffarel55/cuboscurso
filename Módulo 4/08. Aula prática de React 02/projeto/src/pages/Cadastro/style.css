@@ -23,7 +23,7 @@
 }
 
 .danger {
-  background: var(--color-error);
+  background: var(--color-error) !important;
 }
 
 @media screen and (max-width: 500px) {

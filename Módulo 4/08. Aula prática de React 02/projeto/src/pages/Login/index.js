@@ -27,7 +27,7 @@ function Login() {
           <h1>Faça o login com sua conta</h1>
           <form onSubmit={(e) => e.preventDefault()}>
             <input
-              type="email"
+              type="text"
               placeholder="E-mail"
               name="email"
               value={formulario.email}

@@ -1,18 +1,13 @@
-import "./App.css";
-
 import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Redirect,
+  BrowserRouter as Router, Redirect, Route,
+  Switch
 } from "react-router-dom";
-
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Cadastro from "./pages/Cadastro";
-
+import "./App.css";
 import AuthProvider from "./contexts/AuthContext/AuthProvider";
 import useAuth from "./hooks/useAuth";
+import Cadastro from "./pages/Cadastro";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
 
 function Protegido(props) {
   const auth = useAuth();

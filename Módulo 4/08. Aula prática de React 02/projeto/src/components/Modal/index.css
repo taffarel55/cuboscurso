@@ -69,6 +69,10 @@
   color: #e6ffe6;
 }
 
+.modal-confirmation {
+  white-space: normal;
+}
+
 @media (max-width: 500px) {
   .modal-container {
     padding: 20px;

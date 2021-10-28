@@ -31,3 +31,9 @@ header img {
   width: 200px;
   margin-bottom: 32px;
 }
+
+@media only screen and (max-width: 500px) {
+  .content > button {
+    width: 100%;
+  }
+}

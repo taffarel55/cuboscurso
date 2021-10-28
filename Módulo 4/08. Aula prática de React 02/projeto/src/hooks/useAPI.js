@@ -10,7 +10,7 @@ export default function useAPI() {
       "Content-Type": "application/json",
       Authorization: authentication ? `Bearer ${auth.token}` : "",
     };
-    this.body = JSON.stringify(body);
+    if (body) this.body = JSON.stringify(body);
   }
 
   const login = async (body) =>
@@ -19,12 +19,11 @@ export default function useAPI() {
   const usuarios = async (body) =>
     fetch(`${baseURL}/usuarios`, new options("POST", false, body));
 
-  const contatos = async (method, authentication, id, body) => {
+  const contatos = async (method, authentication, id, body) =>
     fetch(
-      `${baseURL}/contatos/${id ?? ""}`,
+      `${baseURL}/contatos/${id || ""}`,
       new options(method, authentication, body)
     );
-  };
 
   return {
     login,

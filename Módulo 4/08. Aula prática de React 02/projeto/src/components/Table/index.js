@@ -8,7 +8,8 @@ import Modal from "../../components/Modal";
 function Table({ lista, setLista }) {
   const api = useAPI();
   const [modal, setModal] = useState(false);
-  const [id, setId] = useState(false) 
+  const [id, setId] = useState(false);
+  const [remove, setRemove] = useState(false);
 
   const getData = useCallback(async () => {
     const response = await api.contatos("GET", true);
@@ -29,7 +30,13 @@ function Table({ lista, setLista }) {
       <TableHead />
       <div className="table-body">
         {lista.map((item, index) => (
-          <TableLine key={index} item={item} setModal={setModal} setId={setId}/>
+          <TableLine
+            key={index}
+            item={item}
+            setModal={setModal}
+            setId={setId}
+            setRemove={setRemove}
+          />
         ))}
       </div>
       {modal && (
@@ -38,6 +45,7 @@ function Table({ lista, setLista }) {
           setModal={setModal}
           setLista={setLista}
           id={id}
+          remove={remove}
         />
       )}
     </div>
@@ -55,12 +63,18 @@ function TableHead() {
   );
 }
 
-function TableLine({ item, setModal, setId }) {
+function TableLine({ item, setModal, setId, setRemove }) {
   const { nome, email, telefone } = item;
-  
-  function handleClick() {
+
+  function handleEdit() {
     setModal(true);
     setId(item.id);
+    setRemove(false);
+  }
+
+  function handleRemove() {
+    handleEdit();
+    setRemove(true);
   }
 
   return (
@@ -70,8 +84,8 @@ function TableLine({ item, setModal, setId }) {
       <span className="line-items">{telefone}</span>
       <span className="line-items ">
         <div className="icons">
-          <img onClick={handleClick} src={edit} alt="" />
-          <img src={remove} alt="" />
+          <img onClick={handleEdit} src={edit} alt="" />
+          <img onClick={handleRemove} src={remove} alt="" />
         </div>
       </span>
     </div>

@@ -3,8 +3,9 @@ import useAPI from "./useAPI";
 
 export default function useAuthProvider() {
   const [token, setToken] = useLocalStorage("token", "");
+  const [usuario, setUsuario] = useLocalStorage("usuario", "");
   const api = useAPI();
-  
+
   const logar = async ({ email, senha }, callback) => {
     const body = {
       email,
@@ -17,6 +18,7 @@ export default function useAuthProvider() {
       return;
     }
     setToken(data.token);
+    setUsuario(data.usuario);
     callback();
   };
 
@@ -42,6 +44,7 @@ export default function useAuthProvider() {
 
   return {
     token,
+    usuario,
     logar,
     deslogar,
     cadastrar,
