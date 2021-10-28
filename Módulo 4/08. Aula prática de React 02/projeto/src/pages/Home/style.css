@@ -1,0 +1,33 @@
+@import url(https://fonts.googleapis.com/css?family=Rokkitt:100,200,300,regular,500,600,700,800,900);
+
+header {
+  background: var(--color-info);
+  padding: 24px 32px;
+  display: flex;
+  justify-content: center;
+  font-family: Rokkitt;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 27px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #ffffff;
+}
+
+header img {
+  position: absolute;
+  right: 32px;
+  cursor: pointer;
+}
+
+.Home .content {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.content > button {
+  margin-top: 50px;
+  width: 200px;
+  margin-bottom: 32px;
+}

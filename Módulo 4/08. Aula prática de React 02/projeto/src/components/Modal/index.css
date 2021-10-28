@@ -1,0 +1,89 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #3d3d3d7a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.modal-container {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 30px;
+}
+
+.modal-items {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.modal-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.modal-title-text {
+  font-family: Roboto;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+.close-icon img {
+  width: 26px;
+  transform: rotate(-45deg);
+  cursor: pointer;
+}
+
+.modal-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.popup {
+  z-index: 3;
+  position: fixed;
+  align-self: center;
+  top: 40px;
+  padding: 20px;
+  border-radius: 10px;
+  background: #009933;
+  color: #e6ffe6;
+}
+
+@media (max-width: 500px) {
+  .modal-container {
+    padding: 20px;
+  }
+  .modal-title-text {
+    font-size: 20px;
+  }
+  .modal-input-div label {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 320px) {
+  .modal-title {
+    gap: 3px;
+    width: calc(100vw - 40px);
+  }
+}

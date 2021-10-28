@@ -1,0 +1,33 @@
+.Cadastro {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.page-container h2 {
+  font-family: Roboto;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.Cadastro .page-content button {
+  margin-bottom: 8px;
+}
+
+.page-content button.danger {
+  margin-top: 0px;
+}
+
+.danger {
+  background: var(--color-error);
+}
+
+@media screen and (max-width: 500px) {
+  .Cadastro {
+    flex-direction: column;
+  }
+}
