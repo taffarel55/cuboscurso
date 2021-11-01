@@ -1,0 +1,52 @@
+.menu {
+  display: flex;
+  color: #fff;
+}
+
+.menu li {
+  list-style-type: none;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.menu li:hover {
+  color: #fed530;
+}
+
+.fullscren-menu {
+  position: relative;
+}
+
+.icon-menu,
+.icon-close {
+  display: none;
+  cursor: pointer;
+  position: absolute;
+}
+
+@media (max-width: 540px) {
+  .icon-menu,
+  .icon-close {
+    display: block;
+    position: absolute;
+  }
+
+  .icon-menu {
+    width: 35px;
+    height: 1rem;
+    top: 3.5rem;
+  }
+
+  .icon-close {
+    width: 35px;
+    height: 2rem;
+    top: 3rem;
+  }
+
+  .fullscren-menu {
+    position: absolute;
+    background-color: #fed530;
+    height: 100vh;
+    width: 100vw;
+  }
+}

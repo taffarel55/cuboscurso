@@ -1,0 +1,44 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%; /* setando em 10px */
+}
+
+.first-text {
+  font-size: 1.2rem; /* 12px */
+}
+
+h2 {
+  font-size: 1.8rem; /* 18px */
+}
+
+.container {
+  width: 100vw;
+  height: 200px;
+  background-color: black;
+  display: flex;
+}
+
+.left,
+.right {
+  width: 50%;
+  height: 200px;
+}
+
+.left {
+  background-color: green;
+}
+
+.right {
+  background-color: red;
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+}

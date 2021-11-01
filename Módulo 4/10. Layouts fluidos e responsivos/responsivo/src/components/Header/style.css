@@ -1,0 +1,30 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 144px;
+  color: white;
+  width: 86%;
+  padding: 0 4%;
+  margin-bottom: 3.2rem;
+  position: relative;
+}
+
+.logo {
+  width: 180px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    height: auto;
+    margin: 2rem;
+  }
+}
+
+@media (max-width: 540px) {
+  .logo {
+    margin: 3rem 0;
+  }
+}
