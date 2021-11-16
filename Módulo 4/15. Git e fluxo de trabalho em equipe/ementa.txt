@@ -1,0 +1,26 @@
+Git e fluxo de trabalho em equipe
+
+    Tópico 1 - Introdução ao vivo
+    Tópico 2 - Introdução
+    Tópico 3 - GIT
+    Tópico 4 - GitHub
+    Tópico 5 - Ramificações - Branch
+    Tópico 6 - git init
+    Tópico 7 - git clone
+    Tópico 8 - git status
+    Tópico 9 - git add
+    Tópico 10 - git reset
+    Tópico 11 - git commit
+    Tópico 12 - Criando repositório no servidor remoto
+    Tópico 13 - git remote add origin
+    Tópico 14 - git push
+    Tópico 15 - git pull
+    Tópico 16 - git checkout
+    Tópico 17 - git merge
+    Tópico 18 - Documentação Git
+    Tópico 19 - Fluxo de trabalho em equipe
+    Tópico 20 - Criando Pull Request
+    Tópico 21 - Criando Pull Request - Parte 2
+    Tópico 22 - Conflitos
+    Tópico 23 - Resolução de conflitos
+    Tópico 24 - Interface Gráfica para Git
